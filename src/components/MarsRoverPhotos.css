@@ -1,0 +1,52 @@
+.mars-rover-photos-page {
+    display: flex;
+    width: 80%;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+
+.mars-rover-photos-page h2 {
+    width: 100%;
+    color: whitesmoke;
+}
+
+.mars-rover-photos-page .mars-rover-photos-card {
+    width: 200px;
+    height: 200px;
+}
+
+.mars-rover-photos-page .mars-rover-photos-card img {
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+
+
+.mars-rover-photos-page .buttons-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 3rem;
+}
+
+
+.mars-rover-photos-page .buttons-container button {
+    padding: .5rem;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.mars-rover-photos-page .buttons-container span {
+    color: whitesmoke;
+    font-weight: bold;
+}

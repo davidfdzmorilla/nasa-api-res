@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import "./Main.css"
+import Loading from "../utils/Loading"
+import "./PictureOfTheDay.css"
 
 
 export default function Main() {
@@ -27,15 +28,16 @@ export default function Main() {
         loadData()
     }, [isLoading, date])
 
+    if (!data.date) return <Loading />
+
     return (
-        <main>
+        <main className="picture-of-the-day">
             <h2>NASA Astronomy Picture Of The Day</h2>
             <form onSubmit={handleDay}>
                 <label>
                     Choose date of the photo of the day
                     <input onChange={e => setDate(e.target.value)} type='date' max={new Date(1)} />
                 </label>
-                <button>Envíar</button>
             </form>
             <article className="card-image-of-day">
                 <img src={data.hdurl} title={data.title} alt={data.title} />
@@ -45,6 +47,10 @@ export default function Main() {
                     <p className="card-iamge-of-day__explanation">{data.explanation}</p>
                 </section>
             </article>
+            <section className="buttons-conatiner">
+                <button>Prev</button>
+                <button>Next</button>
+            </section>
         </main>
     )
 }

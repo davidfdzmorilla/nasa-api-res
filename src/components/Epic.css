@@ -1,0 +1,135 @@
+.epic-page {
+    flex-grow: 1;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+
+.epic-page .menu-filter {
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #636e72;
+    border: 1px solid black;
+    gap: 2rem;
+}
+
+
+.epic-page .menu-filter form {
+    box-sizing: border-box;
+    padding: 1rem;
+    width: 100%;
+}
+
+
+.epic-page .menu-filter form label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+
+.epic-page .menu-filter form label input[type='date'] {
+    padding: .5rem;
+}
+
+.epic-page .menu-filter form label select {
+    width: 100%;
+    padding: .5rem;
+}
+
+
+.epic-page .menu-filter ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+}
+
+
+.epic-page .menu-filter ul h3 {
+    padding-left: 1rem;
+}
+
+
+.epic-page .menu-filter ul li {
+    list-style: none;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.epic-page .menu-filter ul li:last-child {
+    border-bottom: 1px solid black;
+}
+
+
+.epic-page .epic-image-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.epic-page .epic-image-container h2 {
+    width: 100%;
+    padding: 1rem 0 0 2rem;
+    color: whitesmoke;
+}
+
+.epic-page .epic-image-container .epic-image-card {
+    width: 60%;
+    display: flex;
+    gap: 2rem;
+    background-color: rgb(44, 41, 41);
+    padding: 1.5rem;
+    border-radius: 15px;
+    color: whitesmoke;
+}
+
+
+.epic-page .epic-image-container img {
+    width: 800px;
+    height: 800px;
+}
+
+
+.epic-page .epic-image-container .epic-image-card .epic-image__data {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.epic-page .epic-image-container .epic-image-card .epic-image__data .epic-image__data-items div {
+    width: 200px;
+    background-color: rgb(177, 170, 170);
+    padding: .2rem 1rem;
+    border-radius: 5px;
+}
+
+
+.epic-page .epic-image-container .epic-image-card .epic-image__data p {
+    color: blue;
+}
+
+
+.epic-page .epic-image-container .epic-image-card .epic-image__data span {
+    color: green;
+}

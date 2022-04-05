@@ -1,3 +1,47 @@
 header {
     color: whitesmoke;
+    background-color: #2d3436;
+    width: 300px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .link-to-home {
+    font-size: 2rem;
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bolder;
+    padding: 2rem 2rem 0 2rem;
+}
+
+
+header ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+
+header ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    list-style: none;
+    border-top: 1px solid white;
+}
+
+
+header ul li:last-child {
+    border-bottom: 1px solid white;
+}
+
+
+header ul li .link-menu-item {
+    text-decoration: none;
+    color: whitesmoke;
 }

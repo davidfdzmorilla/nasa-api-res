@@ -1,4 +1,4 @@
-main {
+.picture-of-the-day {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,12 +6,11 @@ main {
     width: 100vw;
     min-height: 100vh;
     flex-grow: 1;
-    color: whitesmoke;
     gap: 2rem;
 }
 
 
-main form {
+.picture-of-the-day form {
     display: flex;
     width: 500px;
     gap: 1rem;
@@ -20,7 +19,7 @@ main form {
 }
 
 
-main form label {
+.picture-of-the-day form label {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -28,45 +27,43 @@ main form label {
 }
 
 
-main form label input[type='date'] {
+.picture-of-the-day form label input[type='date'] {
     width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(147, 128, 128);
+    padding: 1rem;
 }
 
 
-main form button {
-    width: 100px;
-    height: 30px;
-}
-
-
-
-main .card-image-of-day {
+.picture-of-the-day .card-image-of-day {
     width: 60%;
     display: flex;
     gap: 2rem;
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    border: 1px solid black;
     background-color: rgb(44, 41, 41);
     border-radius: 15px;
+    color: whitesmoke;
 }
 
 
-main h2,
-main .card-image-of-day h3 {
+.picture-of-the-day h2,
+.picture-of-the-day .card-image-of-day h3 {
     font-size: 2rem;
 }
 
 
-main .card-image-of-day img {
+.picture-of-the-day .card-image-of-day img {
     flex-grow: 1;
     max-width: 70%;
+    max-height: 800px;
     border-radius: 15px;
 }
 
 
-main .card-image-of-day .data-image {
+.picture-of-the-day .card-image-of-day .data-image {
     display: flex;
     flex-direction: column;
     justify-content: center;
