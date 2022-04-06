@@ -8,11 +8,14 @@ export default function Main() {
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
+    console.log(date)
 
     const handleDay = e => {
         e.preventDefault()
         setIsLoading(!isLoading)
     }
+
+
     useEffect(() => {
         const loadData = async () => {
             try {
@@ -33,24 +36,19 @@ export default function Main() {
     return (
         <main className="picture-of-the-day">
             <h2>NASA Astronomy Picture Of The Day</h2>
-            <form onSubmit={handleDay}>
-                <label>
-                    Choose date of the photo of the day
-                    <input onChange={e => setDate(e.target.value)} type='date' max={new Date(1)} />
-                </label>
-            </form>
             <article className="card-image-of-day">
                 <img src={data.hdurl} title={data.title} alt={data.title} />
                 <section className="data-image">
-                    <h3>{data.title}</h3>
-                    <p className="card-iamge-of-day__date">{data.date}</p>
+                    <span>{data.title} 📅 {data.date}</span>
                     <p className="card-iamge-of-day__explanation">{data.explanation}</p>
                 </section>
             </article>
-            <section className="buttons-conatiner">
-                <button>Prev</button>
-                <button>Next</button>
-            </section>
+            <form onSubmit={handleDay}>
+                <label>
+                    Choose date of the photo of the day
+                    <input max={new Date().toISOString().slice(0, 10)} onChange={e => setDate(e.target.value)} type='date' />
+                </label>
+            </form>
         </main>
     )
 }

@@ -31,7 +31,9 @@ export default function MarsRoverPhotos() {
             {data.photos?.map(item => {
                 return (
                     <article className="mars-rover-photos-card" key={item.id}>
-                        <img src={item.img_src} alt={'Photo' + item.id} />
+                        <a href={item.img_src} target='_blank' rel='noreferrer nopener'>
+                            <img src={item.img_src} alt={'Photo' + item.id} />
+                        </a>
                     </article>
                 )
             })}

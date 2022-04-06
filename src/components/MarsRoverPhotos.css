@@ -1,6 +1,7 @@
 .mars-rover-photos-page {
     display: flex;
-    width: 80%;
+    min-height: 100vh;
+    margin-left: 200px;
     padding: 2rem;
     justify-content: center;
     align-items: center;
@@ -15,13 +16,13 @@
 }
 
 .mars-rover-photos-page .mars-rover-photos-card {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
 }
 
 .mars-rover-photos-page .mars-rover-photos-card img {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     cursor: pointer;
 }
 

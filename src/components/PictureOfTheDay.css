@@ -1,21 +1,11 @@
 .picture-of-the-day {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    width: 100vw;
-    min-height: 100vh;
     flex-grow: 1;
-    gap: 2rem;
-}
-
-
-.picture-of-the-day form {
-    display: flex;
-    width: 500px;
-    gap: 1rem;
-    justify-content: center;
-    align-items: flex-end;
+    min-height: 100vh;
+    margin-left: 200px;
 }
 
 
@@ -23,7 +13,8 @@
     display: flex;
     flex-direction: column;
     width: 300px;
-    gap: 1rem;
+    gap: .5rem;
+    color: whitesmoke;
 }
 
 
@@ -32,17 +23,19 @@
     border: none;
     border-radius: 5px;
     background-color: rgb(147, 128, 128);
-    padding: 1rem;
+    padding: .5rem;
 }
 
 
 .picture-of-the-day .card-image-of-day {
-    width: 60%;
+    width: 80%;
+    height: 60%;
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
+    padding: .5rem;
     background-color: rgb(44, 41, 41);
     border-radius: 15px;
     color: whitesmoke;
@@ -50,15 +43,16 @@
 
 
 .picture-of-the-day h2,
-.picture-of-the-day .card-image-of-day h3 {
-    font-size: 2rem;
+.picture-of-the-day .card-image-of-day span {
+    color: whitesmoke;
+    padding: 0;
+    margin: 0;
 }
 
 
 .picture-of-the-day .card-image-of-day img {
     flex-grow: 1;
-    max-width: 70%;
-    max-height: 800px;
+    max-height: 400px;
     border-radius: 15px;
 }
 
@@ -68,5 +62,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 1rem;
+    font-size: .9rem;
 }

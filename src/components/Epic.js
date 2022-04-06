@@ -12,6 +12,7 @@ export default function Epic() {
     const [dateImage, setDateImage] = useState('')
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
+    console.log(data)
 
     useEffect(() => {
         const loadData = async () => {
@@ -21,6 +22,7 @@ export default function Epic() {
                 setData(data)
                 setError(null)
                 setIsLoading(true)
+                setImageData(data[0])
             } catch (error) {
                 setError(error)
             }
@@ -41,7 +43,7 @@ export default function Epic() {
                 <form onSubmit={handleSubmit}>
                     <label>
                         Filter
-                        <input type='date' onChange={e => setDateImage(e.target.value)} />
+                        <input type='date' onChange={e => setDateImage(e.target.value)} max={new Date().toISOString().slice(0, 10)} />
                         <select onChange={e => setFilterCollection(e.target.value)}>
                             <option value='natural' defaultValue>Natural</option>
                             <option value='enhanced'>Enhanced</option>
@@ -51,13 +53,13 @@ export default function Epic() {
                 </form>
                 <ul>
                     <h3>Pictures List</h3>
-                    {data?.map(item => {
+                    {data.length > 0 ? data?.map(item => {
                         return (
                             <li key={item.id} onClick={() => setImageData(item)}>
                                 {item.date}
                             </li>
                         )
-                    })}
+                    }) : <p>Lo sentimos, no hay fotos para la fecha seleccionada.</p>}
                 </ul>
             </section>
             {imageData?.image && <EpicImage imageData={imageData} filterCollection={filterCollection} />}

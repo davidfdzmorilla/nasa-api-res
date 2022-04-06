@@ -1,29 +1,31 @@
 .epic-page {
     flex-grow: 1;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-left: 200px;
+    align-items: flex-start;
     flex-wrap: wrap;
 }
 
 
 
 .epic-page .menu-filter {
-    width: 300px;
-    height: 100%;
+    width: 150px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     background-color: #636e72;
-    border: 1px solid black;
     gap: 2rem;
 }
 
 
 .epic-page .menu-filter form {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
     padding: 1rem;
     width: 100%;
 }
@@ -37,13 +39,18 @@
 }
 
 
-.epic-page .menu-filter form label input[type='date'] {
+.epic-page .menu-filter form label input[type='date'],
+.epic-page .menu-filter form label select {
+    font-size: .7rem;
     padding: .5rem;
 }
 
-.epic-page .menu-filter form label select {
-    width: 100%;
-    padding: .5rem;
+.epic-page .menu-filter form button {
+    background-color: rgb(87, 51, 244);
+    border: none;
+    border-radius: 5px;
+    color: whitesmoke;
+    padding: .2rem;
 }
 
 
@@ -66,11 +73,12 @@
     list-style: none;
     cursor: pointer;
     width: 100%;
-    height: 50px;
+    height: 30px;
     border-top: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: .9rem;
 }
 
 .epic-page .menu-filter ul li:last-child {
@@ -81,9 +89,9 @@
 .epic-page .epic-image-container {
     flex-grow: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .epic-page .epic-image-container h2 {
@@ -93,40 +101,42 @@
 }
 
 .epic-page .epic-image-container .epic-image-card {
-    width: 60%;
+    width: 500px;
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 1rem;
     background-color: rgb(44, 41, 41);
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 15px;
     color: whitesmoke;
+    font-size: .7rem;
 }
 
 
 .epic-page .epic-image-container img {
-    width: 800px;
-    height: 800px;
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    flex-grow: 1;
+    border-radius: 15px;
 }
 
 
 .epic-page .epic-image-container .epic-image-card .epic-image__data {
-    width: 200px;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
 }
 
 .epic-page .epic-image-container .epic-image-card .epic-image__data .epic-image__data-items div {
-    width: 200px;
-    background-color: rgb(177, 170, 170);
-    padding: .2rem 1rem;
+    background-color: rgb(0, 0, 0);
+    padding: .2rem .5rem;
     border-radius: 5px;
-}
-
-
-.epic-page .epic-image-container .epic-image-card .epic-image__data p {
-    color: blue;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
