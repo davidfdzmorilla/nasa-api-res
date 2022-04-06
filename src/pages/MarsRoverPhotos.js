@@ -27,7 +27,7 @@ export default function MarsRoverPhotos() {
     if (!data) return <Loading />
     return (
         <main className="mars-rover-photos-page">
-            <h2>Mars Rover Photos-page</h2>
+            <h2>Mars Rover Photos</h2>
             {data.photos?.map(item => {
                 return (
                     <article className="mars-rover-photos-card" key={item.id}>

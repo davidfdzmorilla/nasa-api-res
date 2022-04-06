@@ -1,4 +1,4 @@
-import "./Epic.css"
+import "./EpicImage.css"
 
 export default function EpicImage({ imageData, filterCollection }) {
     const date = new Date(imageData.date?.slice(0, 10))

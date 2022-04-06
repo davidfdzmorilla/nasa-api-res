@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Loading from "../utils/Loading"
 import "./Epic.css"
-import EpicImage from "./EpicImage"
+import EpicImage from "../components/EpicImage"
 
 
 export default function Epic() {
