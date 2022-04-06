@@ -9,4 +9,5 @@
   align-items: center;
   background-image: url('./assets/jpg/background-3901037.jpg');
   width: 100vw;
+  min-height: 100vh;
 }

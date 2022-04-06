@@ -1,0 +1,74 @@
+.mars-weather-page {
+    margin-left: 200px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: whitesmoke;
+    background-image: url('../assets/jpg/rover-curiosity.jpg');
+    background-size: cover;
+}
+
+.mars-weather-page .filter-background {
+    background-color: rgba(26, 27, 28, 0.333);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.mars-weather-page .filter-background h2 {
+    font-size: 2rem;
+}
+
+
+.mars-weather-page .weather-cards-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+
+
+
+.mars-weather-page .weather-cards-container .weather-card {
+    background-color: rgba(37, 38, 39, 0.515);
+    width: 150px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    font-size: .8rem;
+    border-radius: 20px;
+}
+
+
+
+.mars-weather-page .weather-cards-container .weather-card:first-child {
+    background-color: transparent;
+    width: 80%;
+    height: 300px;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 20rem;
+}
+
+
+.mars-weather-page .weather-cards-container .weather-card:first-child * {
+    color: whitesmoke;
+    width: 40%;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.mars-weather-page .weather-cards-container .weather-card:first-child h3 {
+    font-size: 1.5rem;
+}
+
+.mars-weather-page .weather-cards-container .weather-card:first-child span {
+    font-size: 1.2rem;
+}
