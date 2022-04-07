@@ -20,7 +20,7 @@ export default function MarsWeather() {
             }
         }
         loadData()
-    }, [isLoading])
+    }, [isLoading, weather])
     return (
         <main className="mars-weather-page">
             <div className="filter-background">
