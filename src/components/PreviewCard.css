@@ -1,0 +1,57 @@
+.images-videos-page .preview-container .preview-card {
+    width: 200px;
+    height: 300px;
+    background-color: rgba(129, 125, 125, 0.253);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    border-radius: 5px;
+    padding: .5rem;
+}
+
+
+.preview-video-conatiner {
+    z-index: 1;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background-color: rgba(15, 14, 14, 0.851);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.preview-video-conatiner label {
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+
+.preview-video-conatiner video {
+    background-color: rgba(15, 14, 14, 0.851);
+    padding: 2rem;
+}
+
+
+.preview-video-conatiner p {
+    width: 700px;
+}
+
+
+.preview-video-conatiner button {
+    border: none;
+    padding: .5rem;
+    width: 100px;
+    border-radius: 5px;
+    background-color: rgba(255, 0, 0, 0.425);
+    color: whitesmoke;
+    font-weight: bolder;
+    margin: 0 20rem;
+}

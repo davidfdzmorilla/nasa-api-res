@@ -18,6 +18,9 @@ export default function Header() {
                 <li>
                     <Link className="link-menu-item" to='/mars-weather'>MARS WEATHER</Link>
                 </li>
+                <li>
+                    <Link className="link-menu-item" to='/videos'>VIDEOS</Link>
+                </li>
             </ul>
             <div />
         </header>

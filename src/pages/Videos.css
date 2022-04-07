@@ -1,0 +1,23 @@
+.images-videos-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: whitesmoke;
+    margin-left: 200px;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+
+.images-videos-page .preview-container {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+}
