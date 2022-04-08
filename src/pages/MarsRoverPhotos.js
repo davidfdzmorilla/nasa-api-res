@@ -28,15 +28,17 @@ export default function MarsRoverPhotos() {
     return (
         <main className="mars-rover-photos-page">
             <h2>Mars Rover Photos</h2>
-            {data.photos?.map(item => {
-                return (
-                    <article className="mars-rover-photos-card" key={item.id}>
-                        <a href={item.img_src} target='_blank' rel='noreferrer nopener'>
-                            <img src={item.img_src} alt={'Photo' + item.id} />
-                        </a>
-                    </article>
-                )
-            })}
+            <section className="photos-container">
+                {data.photos?.map(item => {
+                    return (
+                        <article className="mars-rover-photos-card" key={item.id}>
+                            <a href={item.img_src} target='_blank' rel='noreferrer nopener'>
+                                <img src={item.img_src} alt={'Photo' + item.id} />
+                            </a>
+                        </article>
+                    )
+                })}
+            </section>
             <section className="buttons-container">
                 <button onClick={() => setPage(page - 1)}>Anterior</button>
                 <span>Page: {page < 1 ? setPage(1) : page}</span>

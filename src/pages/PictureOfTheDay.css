@@ -64,3 +64,24 @@
     align-items: flex-start;
     font-size: .9rem;
 }
+
+
+@media (max-width: 600px) {
+    .picture-of-the-day h2 {
+        width: 50%;
+        font-size: 1rem;
+    }
+
+    .picture-of-the-day form label {
+        display: none;
+    }
+
+    .picture-of-the-day .card-image-of-day {
+        width: 150px;
+    }
+
+    .picture-of-the-day .card-image-of-day img {
+        height: 100px;
+        border-radius: 15px;
+    }
+}

@@ -1,17 +1,18 @@
 .epic-page {
-    flex-grow: 1;
     min-height: 100vh;
+    flex-grow: 1;
     display: flex;
     margin-left: 200px;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-around;
     flex-wrap: wrap;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 
-
 .epic-page .menu-filter {
-    width: 150px;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -83,4 +84,11 @@
 
 .epic-page .menu-filter ul li:last-child {
     border-bottom: 1px solid black;
+}
+
+
+@media (max-width: 968px) {
+    .epic-page .menu-filter {
+        display: none;
+    }
 }

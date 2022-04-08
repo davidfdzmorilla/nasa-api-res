@@ -8,6 +8,7 @@ import PictureOfTheDay from './pages/PictureOfTheDay';
 import ErrorBoundary from './utils/ErrorBoundary';
 import MarsWeather from './pages/MarsWeather';
 import Multimedia from './pages/Multimedia'
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -15,11 +16,12 @@ function App() {
       <ErrorBoundary fallback={<p>Algo salió mal</p>}>
         <Header />
         <Routes>
+          <Route index path='/' element={<Home />} />
           <Route path='/picture-of-the-day' element={<PictureOfTheDay />} />
           <Route path='/epic' element={<Epic />} />
           <Route path='/mars-rover-photos' element={<MarsRoverPhotos />} />
           <Route path='/mars-weather' element={<MarsWeather />} />
-          <Route path='/multimedia' index element={<Multimedia />} />
+          <Route path='/multimedia' element={<Multimedia />} />
         </Routes>
       </ErrorBoundary>
     </div>

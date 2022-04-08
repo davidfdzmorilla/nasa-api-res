@@ -2,14 +2,15 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .epic-page .epic-image-container h2 {
     width: 100%;
-    padding: 1rem 0 0 2rem;
+    padding: 1rem 0 0 0;
     color: whitesmoke;
+    text-align: center;
 }
 
 .epic-page .epic-image-container .epic-image-card {
@@ -27,8 +28,8 @@
 
 .epic-page .epic-image-container img {
     margin: 0 auto;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     flex-grow: 1;
     border-radius: 15px;
 }
@@ -54,4 +55,15 @@
 
 .epic-page .epic-image-container .epic-image-card .epic-image__data span {
     color: green;
+}
+
+@media (max-width: 800px) {
+    .epic-page .epic-image-container .epic-image-card {
+        width: 400px;
+    }
+
+    .epic-page .epic-image-container .epic-image-card .epic-image__data {
+        flex-direction: column;
+        align-items: center;
+    }
 }

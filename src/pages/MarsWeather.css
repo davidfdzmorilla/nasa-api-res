@@ -1,7 +1,7 @@
 .mars-weather-page {
     margin-left: 200px;
-    width: 100vw;
-    height: 100vh;
+    max-width: 100vw;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     color: whitesmoke;
@@ -9,66 +9,79 @@
     background-size: cover;
 }
 
-.mars-weather-page .filter-background {
-    background-color: rgba(26, 27, 28, 0.333);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2rem;
-}
 
-.mars-weather-page .filter-background h2 {
+.mars-weather-page h2 {
     font-size: 2rem;
+    margin: 1rem auto;
 }
 
 
 .mars-weather-page .weather-cards-container {
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
+    background-color: rgba(0, 0, 0, 0.214);
+    border-radius: 30px;
+    margin: 0 1rem;
 }
-
-
 
 
 .mars-weather-page .weather-cards-container .weather-card {
     background-color: rgba(37, 38, 39, 0.515);
-    width: 150px;
-    height: 250px;
+    width: 200px;
+    height: 300px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    font-size: .8rem;
     border-radius: 20px;
+    margin-bottom: 1rem;
+    gap: .2rem;
 }
 
 
 
 .mars-weather-page .weather-cards-container .weather-card:first-child {
     background-color: transparent;
-    width: 80%;
-    height: 300px;
+    width: 100%;
+    height: 250px;
     flex-direction: row;
     justify-content: center;
-    padding-left: 20rem;
+    margin-bottom: 2rem;
 }
 
 
 .mars-weather-page .weather-cards-container .weather-card:first-child * {
     color: whitesmoke;
     width: 40%;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bolder;
+    margin: 0;
 }
 
 .mars-weather-page .weather-cards-container .weather-card:first-child h3 {
-    font-size: 1.5rem;
+    font-size: 3rem;
 }
 
 .mars-weather-page .weather-cards-container .weather-card:first-child span {
-    font-size: 1.2rem;
+    font-size: 2.5rem;
+}
+
+@media (max-width: 600px) {
+    .mars-weather-page .weather-cards-container .weather-card:first-child * {
+        color: whitesmoke;
+        width: 40%;
+        font-size: 1rem;
+        font-weight: bolder;
+        margin: 0;
+    }
+
+    .mars-weather-page .weather-cards-container .weather-card:first-child h3 {
+        font-size: 1.5rem;
+    }
+
+    .mars-weather-page .weather-cards-container .weather-card:first-child span {
+        font-size: 1rem;
+    }
 }

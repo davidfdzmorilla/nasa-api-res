@@ -48,7 +48,7 @@ export default function Multimedia() {
 
     return (
         <main className="images-videos-page">
-            <h2>Videos</h2>
+            <h2>Multimedia</h2>
             <section className="search-container">
                 <form>
                     <input autoFocus value={title} onChange={e => setTitle(e.target.value)} type='text' placeholder='Search...' />
@@ -67,6 +67,7 @@ export default function Multimedia() {
                 }) : <p className="no-results">No hay resultados</p>}
                 <div className="buttons-container">
                     <span onClick={() => setPage(Number(page) - 1)}>{Number(page) !== 1 && '⬅️'}</span>
+                    <span>{page}</span>
                     <span onClick={() => setPage(Number(page) + 1)}>➡️</span>
                 </div>
             </section>

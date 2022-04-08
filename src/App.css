@@ -7,8 +7,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: url('./assets/jpg/background.jpg');
-  background-size: cover;
-  width: 100vw;
   min-height: 100vh;
+  background-color: rgb(17, 16, 16);
 }
