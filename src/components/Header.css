@@ -12,12 +12,27 @@ header {
     left: 0;
 }
 
+header .logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+header .logo {
+    background-image: url('../assets/png/nasa-logo.png');
+    width: 170px;
+    height: 170px;
+    background-size: cover;
+}
+
 header .link-to-home {
     font-size: 2rem;
-    text-decoration: none;
     color: whitesmoke;
     font-weight: bolder;
-    padding: 2rem 2rem 0 2rem;
+    margin: 0;
 }
 
 

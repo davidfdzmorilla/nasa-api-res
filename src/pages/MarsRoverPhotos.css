@@ -7,6 +7,9 @@
     align-items: center;
     flex-wrap: wrap;
     gap: .5rem;
+    box-sizing: border-box;
+    background-image: url('../assets/jpg/rover-curiosity.jpg');
+    background-size: cover;
 }
 
 
@@ -14,6 +17,7 @@
     width: 100%;
     color: whitesmoke;
 }
+
 
 .mars-rover-photos-page .mars-rover-photos-card {
     width: 120px;
