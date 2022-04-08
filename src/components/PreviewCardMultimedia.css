@@ -14,7 +14,7 @@
 
 .images-videos-page .preview-container .preview-card span {
     font-size: 1.5rem;
-    background-color: rgba(240, 248, 255, 0.388);
+    background-color: rgba(214, 218, 244, 0.732);
     padding: .5rem;
     border-radius: 50%;
 }
@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 2rem;
     background-color: rgba(15, 14, 14, 0.851);
     position: fixed;
@@ -47,15 +47,18 @@
 
 
 .preview-video-conatiner video {
+    width: 60vw;
     background-color: rgba(15, 14, 14, 0.851);
     padding: 2rem;
 }
 
 
 .preview-video-conatiner img {
+    width: 1080px;
+    height: 960;
+    height: 60vh;
     background-color: rgba(255, 255, 255, 0.495);
     padding: 2rem;
-
 }
 
 

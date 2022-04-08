@@ -8,13 +8,38 @@
     margin-left: 200px;
 }
 
+.picture-of-the-day h2 {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.picture-of-the-day form {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+}
+
+
+.picture-of-the-day form button {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0a3a8a;
+    color: whitesmoke;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 
 .picture-of-the-day form label {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 300px;
     gap: .5rem;
     color: whitesmoke;
+    font-weight: bold;
 }
 
 
@@ -28,13 +53,12 @@
 
 
 .picture-of-the-day .card-image-of-day {
-    width: 80%;
-    height: 60%;
+    width: 1000px;
+    height: 600px;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: .5rem;
     background-color: rgba(37, 38, 39, 0.515);
     border-radius: 15px;
@@ -47,8 +71,8 @@
     color: whitesmoke;
     padding: 0;
     margin: 0;
+    font-weight: bold;
 }
-
 
 .picture-of-the-day .card-image-of-day img {
     flex-grow: 1;
@@ -56,13 +80,19 @@
     border-radius: 15px;
 }
 
+.picture-of-the-day .card-image-of-day iframe {
+    flex-grow: 1;
+}
+
 
 .picture-of-the-day .card-image-of-day .data-image {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
+    padding-top: 1rem;
     font-size: .9rem;
+    gap: .5rem;
 }
 
 

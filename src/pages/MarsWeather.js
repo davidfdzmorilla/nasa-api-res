@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Loading from "../utils/Loading"
+import Loading from "../components/Loading"
 import "./MarsWeather.css"
 
 export default function MarsWeather() {
@@ -15,7 +15,6 @@ export default function MarsWeather() {
                 setWeather(arrayWeatherWeek)
                 setError(null)
                 setIsLoading(true)
-                console.log(weather)
             } catch (error) {
                 setError(error)
             }
@@ -31,7 +30,7 @@ export default function MarsWeather() {
             <section className="weather-cards-container">
                 {weather?.map(weatherDay => {
                     return (
-                        <article className="weather-card">
+                        <article key={Math.random()} className="weather-card">
                             <h3>Sol {weatherDay.sol}</h3>
                             <span> 📅 {weatherDay.terrestrial_date}</span>
                             <p>Atmo: {weatherDay.atmo_opacity}</p>

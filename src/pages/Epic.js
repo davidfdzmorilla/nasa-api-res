@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Loading from "../utils/Loading"
+import Loading from "../components/Loading"
 import "./Epic.css"
 import EpicImage from "../components/EpicImage"
 
@@ -12,7 +12,6 @@ export default function Epic() {
     const [dateImage, setDateImage] = useState('')
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
-    console.log(data)
 
     useEffect(() => {
         const loadData = async () => {
@@ -28,7 +27,7 @@ export default function Epic() {
             }
         }
         loadData()
-    }, [isLoading, url])
+    }, [isLoading, url, filterCollection])
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -44,18 +43,18 @@ export default function Epic() {
                     <label>
                         Filter
                         <input type='date' onChange={e => setDateImage(e.target.value)} max={new Date().toISOString().slice(0, 10)} />
-                        <select onChange={e => setFilterCollection(e.target.value)}>
-                            <option value='natural' defaultValue>Natural</option>
-                            <option value='enhanced'>Enhanced</option>
-                        </select>
                     </label>
+                    <select onChange={e => setFilterCollection(e.target.value)}>
+                        <option value='natural' defaultValue>Natural</option>
+                        <option value='enhanced'>Enhanced</option>
+                    </select>
                     <button>Enviar</button>
                 </form>
                 <ul>
                     <h3>Pictures List</h3>
                     {data.length > 0 ? data?.map(item => {
                         return (
-                            <li key={item.id} onClick={() => setImageData(item)}>
+                            <li key={Math.random()} onClick={() => setImageData(item)}>
                                 {item.date}
                             </li>
                         )

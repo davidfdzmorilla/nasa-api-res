@@ -3,7 +3,6 @@ import { useState } from "react"
 import "./PreviewCardMultimedia.css"
 
 export default function PreviewCardMultimedia({ item }) {
-    // console.log(item)
     const [videoMp4, setVideoMp4] = useState('')
     const [image, setImage] = useState('')
     let emojiMediaType
