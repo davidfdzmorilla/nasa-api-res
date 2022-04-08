@@ -15,11 +15,11 @@ function App() {
       <ErrorBoundary fallback={<p>Algo salió mal</p>}>
         <Header />
         <Routes>
-          <Route path='/' element={<PictureOfTheDay />} />
+          <Route path='/picture-of-the-day' element={<PictureOfTheDay />} />
           <Route path='/epic' element={<Epic />} />
           <Route path='/mars-rover-photos' element={<MarsRoverPhotos />} />
           <Route path='/mars-weather' element={<MarsWeather />} />
-          <Route path='/videos' element={<Videos />} />
+          <Route path='/videos' index element={<Videos />} />
         </Routes>
       </ErrorBoundary>
     </div>

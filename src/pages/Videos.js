@@ -48,7 +48,7 @@ export default function Videos() {
 
     return (
         <main className="images-videos-page">
-            <h2>Images & Videos</h2>
+            <h2>Videos</h2>
             <form>
                 <label>Search for title content</label>
                 <input value={title} onChange={e => setTitle(e.target.value)} type='text' placeholder='Search' />
@@ -58,7 +58,7 @@ export default function Videos() {
                     return (
                         <PreviewCard item={item} />
                     )
-                }) : <p>No hay resultedos</p>}
+                }) : <p className="no-results">No hay resultados</p>}
                 <div className="buttons-container">
                     <span onClick={() => setPage(Number(page) - 1)}>{Number(page) !== 1 && '⬅️'}</span>
                     <span onClick={() => setPage(Number(page) + 1)}>➡️</span>

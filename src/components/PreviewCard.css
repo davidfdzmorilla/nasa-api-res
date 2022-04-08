@@ -12,6 +12,10 @@
 }
 
 
+.preview-card img {
+    cursor: pointer;
+}
+
 .preview-video-conatiner {
     z-index: 1;
     width: 100%;
@@ -54,4 +58,5 @@
     color: whitesmoke;
     font-weight: bolder;
     margin: 0 20rem;
+    cursor: pointer;
 }
