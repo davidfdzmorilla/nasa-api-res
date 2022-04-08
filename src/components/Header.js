@@ -27,7 +27,14 @@ export default function Header() {
                 </li>
             </ul>
             <div />
-            <div></div>
+            <div>
+                <div className="links-logos-container">
+                    <a href="https://www.linkedin.com/in/davidfdzmorilla/" target='_blank' rel="nopener noreferrer"><div className="linkedin-logo" /></a>
+                    <a href="https://github.com/davidfdzmorilla" target='_blank' rel="nopener noreferrer"><div className="github-logo" /></a>
+                    <a href="https://davidfdzmorilla.dev" target='_blank' rel="nopener noreferrer"><div className="portfolio-logo" /></a>
+                </div>
+                <p>davidfdzmorilla</p>
+            </div>
         </header>
     )
 }

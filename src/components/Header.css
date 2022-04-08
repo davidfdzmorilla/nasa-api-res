@@ -70,3 +70,34 @@ header ul li .active {
     color: #3e5e94;
     font-weight: bolder;
 }
+
+
+header .links-logos-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+header .links-logos-container .linkedin-logo {
+    background-image: url('../assets/png/linkedin.png');
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+}
+
+header .links-logos-container .github-logo {
+    background-image: url('../assets/png/signo-de-github.png');
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+}
+
+
+header .links-logos-container .portfolio-logo {
+    background-image: url('../assets/png/www.png');
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+}
