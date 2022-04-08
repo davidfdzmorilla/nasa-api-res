@@ -28,7 +28,7 @@ export default function Epic() {
             }
         }
         loadData()
-    }, [isLoading, url])
+    }, [isLoading, url, filterCollection])
 
     const handleSubmit = e => {
         e.preventDefault()

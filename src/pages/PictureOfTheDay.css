@@ -8,6 +8,20 @@
     margin-left: 200px;
 }
 
+.picture-of-the-day form {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+}
+
+
+.picture-of-the-day form button {
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+
 
 .picture-of-the-day form label {
     display: flex;
@@ -28,13 +42,13 @@
 
 
 .picture-of-the-day .card-image-of-day {
-    width: 80%;
-    height: 60%;
+    width: 1000px;
+    height: 700px;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: .5rem;
     background-color: rgba(37, 38, 39, 0.515);
     border-radius: 15px;
@@ -56,11 +70,15 @@
     border-radius: 15px;
 }
 
+.picture-of-the-day .card-image-of-day iframe {
+    flex-grow: 1;
+}
+
 
 .picture-of-the-day .card-image-of-day .data-image {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     font-size: .9rem;
 }
