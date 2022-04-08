@@ -7,7 +7,7 @@ import MarsRoverPhotos from './pages/MarsRoverPhotos';
 import PictureOfTheDay from './pages/PictureOfTheDay';
 import ErrorBoundary from './utils/ErrorBoundary';
 import MarsWeather from './pages/MarsWeather';
-import Videos from './pages/Videos'
+import Multimedia from './pages/Multimedia'
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Route path='/epic' element={<Epic />} />
           <Route path='/mars-rover-photos' element={<MarsRoverPhotos />} />
           <Route path='/mars-weather' element={<MarsWeather />} />
-          <Route path='/videos' index element={<Videos />} />
+          <Route path='/multimedia' index element={<Multimedia />} />
         </Routes>
       </ErrorBoundary>
     </div>

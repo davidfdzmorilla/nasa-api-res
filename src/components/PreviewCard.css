@@ -1,6 +1,6 @@
 .images-videos-page .preview-container .preview-card {
     width: 200px;
-    height: 300px;
+    height: 350px;
     background-color: rgba(129, 125, 125, 0.253);
     display: flex;
     flex-direction: column;
@@ -9,6 +9,14 @@
     gap: 1rem;
     border-radius: 5px;
     padding: .5rem;
+}
+
+
+.images-videos-page .preview-container .preview-card span {
+    font-size: 1.5rem;
+    background-color: rgba(240, 248, 255, 0.388);
+    padding: .5rem;
+    border-radius: 50%;
 }
 
 
@@ -41,6 +49,13 @@
 .preview-video-conatiner video {
     background-color: rgba(15, 14, 14, 0.851);
     padding: 2rem;
+}
+
+
+.preview-video-conatiner img {
+    background-color: rgba(15, 14, 14, 0.851);
+    padding: 2rem;
+
 }
 
 

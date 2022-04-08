@@ -11,7 +11,7 @@ export default function Header() {
             </div>
             <ul>
                 <li>
-                    <Link className="link-menu-item" to='/videos'>VIDEOS</Link>
+                    <Link className="link-menu-item" to='/multimedia'>MULTIMEDIA</Link>
                 </li>
                 <li>
                     <Link className="link-menu-item" to='/mars-weather'>MARS WEATHER</Link>

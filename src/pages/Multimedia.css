@@ -9,7 +9,45 @@
     margin-left: 200px;
     padding: 2rem;
     box-sizing: border-box;
+    gap: 1rem;
 }
+
+
+
+.images-videos-page .search-container {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.images-videos-page form input[type='text'] {
+    padding: .5rem;
+    background-color: rgba(114, 111, 111, 0.279);
+    color: whitesmoke;
+    border: none;
+    border-radius: 5px;
+}
+
+
+.images-videos-page .buttons-media-type-constainer {
+    display: flex;
+    gap: .5rem;
+    justify-content: space-between;
+}
+
+
+.images-videos-page .buttons-media-type-constainer button {
+    width: 100px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 
 .no-results {
     height: 300px;

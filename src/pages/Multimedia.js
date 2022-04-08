@@ -2,20 +2,19 @@
 import { useEffect, useState } from "react"
 import Loading from "../utils/Loading"
 import PreviewCard from "../components/PreviewCard"
-import "./Videos.css"
+import "./Multimedia.css"
 
 
-export default function Videos() {
-    const [data, setData] = useState([])
+export default function Multimedia() {
+    const [data, setData] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(false)
-    const [page, setPage] = useState('')
+    const [page, setPage] = useState('1')
     const [title, setTitle] = useState('')
-    const [mediaType, setMediaType] = useState('video')
-    let url = `https://images-api.nasa.gov/search?title=${title || 'nasa'}`
+    const [mediaType, setMediaType] = useState('image,video')
+    let url = `https://images-api.nasa.gov/search?q=${title || 'nasa'}`
     if (page) url += `&page=${page}`
     if (mediaType) url += `&media_type=${mediaType}`
-    // console.log(url)
 
     useEffect(() => {
         const loadData = async () => {
@@ -42,19 +41,26 @@ export default function Videos() {
             }
         }
         loadData()
-    }, [isLoading, url, page, title,])
+    }, [isLoading, url, page, title, mediaType])
 
 
+    if (!data) return <Loading />
 
     return (
         <main className="images-videos-page">
             <h2>Videos</h2>
-            <form>
-                <label>Search for title content</label>
-                <input value={title} onChange={e => setTitle(e.target.value)} type='text' placeholder='Search' />
-            </form>
+            <section className="search-container">
+                <form>
+                    <input autoFocus value={title} onChange={e => setTitle(e.target.value)} type='text' placeholder='Search...' />
+                </form>
+                <div className="buttons-media-type-constainer">
+                    <button onClick={() => setMediaType('video')}>Videos</button>
+                    <button onClick={() => setMediaType('image')}>Images</button>
+                    <button onClick={() => setMediaType('video,image')}>All</button>
+                </div>
+            </section>
             <section className="preview-container">
-                {data.length > 1 ? data?.map(item => {
+                {data?.length > 1 ? data?.map(item => {
                     return (
                         <PreviewCard item={item} />
                     )
