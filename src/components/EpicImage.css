@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 2rem;
     align-items: center;
 }
 
@@ -11,6 +12,8 @@
     padding: 1rem 0 0 0;
     color: whitesmoke;
     text-align: center;
+    font-family: 'Press Start 2P', cursive;
+
 }
 
 .epic-page .epic-image-container .epic-image-card {
@@ -24,6 +27,12 @@
     color: whitesmoke;
     font-size: .7rem;
 }
+
+.epic-page .epic-image-container .epic-image-card p {
+
+    font-weight: bold;
+}
+
 
 
 .epic-page .epic-image-container img {
@@ -55,6 +64,14 @@
 
 .epic-page .epic-image-container .epic-image-card .epic-image__data span {
     color: green;
+    font-weight: normal;
+}
+
+
+.epic-page .epic-image-container .epic-image-card .date {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 @media (max-width: 800px) {

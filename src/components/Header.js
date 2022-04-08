@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useLocation } from "react-router-dom"
 import "./Header.css"
 
 export default function Header() {
@@ -7,26 +7,27 @@ export default function Header() {
         <header>
             <div onClick={() => navigate('/')} className="logo-container">
                 <div className="logo" />
-                <h1 className="link-to-home">Api Nasa</h1>
+                <h1 className="link-to-home">Nasa App</h1>
             </div>
             <ul>
                 <li>
-                    <Link className="link-menu-item" to='/multimedia'>MULTIMEDIA</Link>
+                    <Link className={(useLocation().pathname === '/multimedia') ? 'active link-menu-item' : 'link-menu-item'} to='/multimedia'>MULTIMEDIA</Link>
                 </li>
                 <li>
-                    <Link className="link-menu-item" to='/mars-weather'>MARS WEATHER</Link>
+                    <Link className={(useLocation().pathname === '/mars-weather') ? 'active link-menu-item' : 'link-menu-item'} to='/mars-weather'>MARS WEATHER</Link>
                 </li>
                 <li>
-                    <Link className="link-menu-item" to='/mars-rover-photos'>MARS ROVER PHOTOS</Link>
+                    <Link className={(useLocation().pathname === '/mars-rover-photos') ? 'active link-menu-item' : 'link-menu-item'} to='/mars-rover-photos'>MARS ROVER PHOTOS</Link>
                 </li>
                 <li>
-                    <Link className="link-menu-item" to='/picture-of-the-day'>PICTURE OF THE DAY</Link>
+                    <Link className={(useLocation().pathname === '/picture-of-the-day') ? 'active link-menu-item' : 'link-menu-item'} to='/picture-of-the-day'>PICTURE OF THE DAY</Link>
                 </li>
                 <li>
-                    <Link className="link-menu-item" to='/epic'>EPIC</Link>
+                    <Link className={(useLocation().pathname === '/epic') ? 'active link-menu-item' : 'link-menu-item'} to='/epic'>EPIC</Link>
                 </li>
             </ul>
             <div />
+            <div></div>
         </header>
     )
 }

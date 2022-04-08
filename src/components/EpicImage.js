@@ -1,6 +1,8 @@
+import { useState, useEffect } from "react"
 import "./EpicImage.css"
 
 export default function EpicImage({ imageData, filterCollection }) {
+    const [url, setUrl] = useState('')
     const date = new Date(imageData.date?.slice(0, 10))
     let dd = date.getDate()
     let mm = date.getMonth() + 1
@@ -14,14 +16,19 @@ export default function EpicImage({ imageData, filterCollection }) {
     const formatedDate = yyyy + '/' + mm + '/' + dd
     const imageType = 'png'
     const imageName = imageData.image
-    const url = `https://epic.gsfc.nasa.gov/archive/${filterCollection}/${formatedDate}/${imageType}/${imageName}.${imageType}`
+    useEffect(() => {
+        setUrl(`https://epic.gsfc.nasa.gov/archive/${filterCollection}/${formatedDate}/${imageType}/${imageName}.${imageType}`)
+
+    }, [url, filterCollection, formatedDate, imageName])
+
 
     return (
         <section className="epic-image-container">
             <h2>EPIC IMAGES</h2>
             {filterCollection && imageData &&
                 <article className="epic-image-card">
-                    <img src={url} title={imageName} alt='imagen' />
+                    <span className="date">📆 {imageData.date}</span>
+                    <img src={url} title={imageName} alt={imageName} />
                     <section className="epic-image__data">
                         <div className="epic-image__data-items">
                             <p>Coords</p>

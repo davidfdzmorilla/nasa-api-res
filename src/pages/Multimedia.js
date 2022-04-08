@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react"
-import Loading from "../utils/Loading"
+import Loading from "../components/Loading"
 import PreviewCardMultimedia from "../components/PreviewCardMultimedia"
 import "./Multimedia.css"
 
@@ -42,8 +42,6 @@ export default function Multimedia() {
         loadData()
     }, [isLoading, url, page, title, mediaType])
 
-    console.log(data)
-
     if (!data) return <Loading />
 
     return (
@@ -53,7 +51,7 @@ export default function Multimedia() {
                 <form>
                     <input autoFocus value={title} onChange={e => setTitle(e.target.value)} type='text' placeholder='Search...' />
                 </form>
-                <div className="buttons-media-type-constainer">
+                <div className="buttons-media-type-container">
                     <button onClick={() => setMediaType('video')}>Videos</button>
                     <button onClick={() => setMediaType('image')}>Images</button>
                     <button onClick={() => setMediaType('video,image')}>All</button>
@@ -62,12 +60,12 @@ export default function Multimedia() {
             <section className="preview-container">
                 {data?.length > 1 ? data?.map(item => {
                     return (
-                        <PreviewCardMultimedia item={item} />
+                        <PreviewCardMultimedia key={Math.random()} item={item} />
                     )
                 }) : <p className="no-results">No hay resultados</p>}
                 <div className="buttons-container">
                     <span onClick={() => setPage(Number(page) - 1)}>{Number(page) !== 1 && '⬅️'}</span>
-                    <span>{page}</span>
+                    <p>{page}</p>
                     <span onClick={() => setPage(Number(page) + 1)}>➡️</span>
                 </div>
             </section>

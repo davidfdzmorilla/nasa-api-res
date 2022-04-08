@@ -3,6 +3,7 @@
     height: 100vh;
     background-image: url('../assets/jpg/background.jpg');
     background-size: cover;
+    font-family: 'Press Start 2P', cursive;
 }
 
 
@@ -10,7 +11,7 @@
     padding-left: 300px;
     color: whitesmoke;
     box-sizing: border-box;
-    height: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.407);

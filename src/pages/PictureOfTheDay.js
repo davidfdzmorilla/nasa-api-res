@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
-import Loading from "../utils/Loading"
+import Loading from "../components/Loading"
 import "./PictureOfTheDay.css"
+
+const API_KEY = process.env.REACT_APP_NASA_API_KEY
 
 
 export default function Main() {
@@ -31,7 +33,7 @@ export default function Main() {
     useEffect(() => {
         const loadData = async () => {
             try {
-                const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=3bCO3vHTdW0kbNyMN986HguufD9aXbwb79KATW3d&date=' + date)
+                const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=` + date)
                 const data = await response.json()
                 setData(data)
                 setError(null)
@@ -44,7 +46,6 @@ export default function Main() {
     }, [isLoading, date])
 
     if (!data.date) return <Loading />
-    console.log(data)
 
     return (
         <main className="picture-of-the-day">

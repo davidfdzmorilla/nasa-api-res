@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
-import Loading from "../utils/Loading"
+import Loading from "../components/Loading"
 
 import "./MarsRoverPhotos.css"
+
+const API_KEY = process.env.REACT_APP_NASA_API_KEY
 
 export default function MarsRoverPhotos() {
     const [data, setData] = useState(null)
     const [page, setPage] = useState(1)
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
-    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${page}&api_key=3bCO3vHTdW0kbNyMN986HguufD9aXbwb79KATW3d`
+    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${page}&api_key=${API_KEY}`
     useEffect(() => {
         const loadData = async () => {
             try {

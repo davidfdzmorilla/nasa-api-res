@@ -8,6 +8,7 @@ header {
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    font-family: 'Trispace', sans-serif;
     top: 0;
     left: 0;
 }
@@ -62,4 +63,10 @@ header ul li:last-child {
 header ul li .link-menu-item {
     text-decoration: none;
     color: whitesmoke;
+}
+
+
+header ul li .active {
+    color: #3e5e94;
+    font-weight: bolder;
 }

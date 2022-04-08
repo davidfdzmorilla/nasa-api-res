@@ -13,6 +13,10 @@
 }
 
 
+.images-videos-page h2 {
+    font-family: 'Press Start 2P', cursive;
+}
+
 
 .images-videos-page .search-container {
     width: 100%;
@@ -33,19 +37,22 @@
 }
 
 
-.images-videos-page .buttons-media-type-constainer {
+.images-videos-page .buttons-media-type-container {
     display: flex;
     gap: .5rem;
     justify-content: space-between;
 }
 
 
-.images-videos-page .buttons-media-type-constainer button {
+.images-videos-page .buttons-media-type-container button {
     width: 100px;
     height: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    background-color: #0a3a8a;
+    color: whitesmoke;
+    font-weight: bold;
 }
 
 
@@ -67,6 +74,7 @@
 
 
 .images-videos-page .buttons-container {
+    width: 100%;
     height: 100px;
     display: flex;
     justify-content: center;
@@ -77,6 +85,10 @@
 
 .images-videos-page .buttons-container span {
     cursor: pointer;
+}
+
+.images-videos-page .buttons-container p {
+    font-weight: bold;
 }
 
 @media (max-width: 600px) {
