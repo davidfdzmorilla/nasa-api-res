@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react"
 import Loading from "../utils/Loading"
-import PreviewCard from "../components/PreviewCard"
+import PreviewCardMultimedia from "../components/PreviewCardMultimedia"
 import "./Multimedia.css"
 
 
@@ -21,7 +21,6 @@ export default function Multimedia() {
             try {
                 const response = await fetch(url)
                 const data = await response.json()
-                console.log(data.collection.items[4])
                 setError(null)
                 setIsLoading(true)
                 const imagesArray = data?.collection.items.map(item => {
@@ -43,6 +42,7 @@ export default function Multimedia() {
         loadData()
     }, [isLoading, url, page, title, mediaType])
 
+    console.log(data)
 
     if (!data) return <Loading />
 
@@ -62,7 +62,7 @@ export default function Multimedia() {
             <section className="preview-container">
                 {data?.length > 1 ? data?.map(item => {
                     return (
-                        <PreviewCard item={item} />
+                        <PreviewCardMultimedia item={item} />
                     )
                 }) : <p className="no-results">No hay resultados</p>}
                 <div className="buttons-container">

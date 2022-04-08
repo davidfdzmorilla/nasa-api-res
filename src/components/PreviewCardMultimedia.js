@@ -1,8 +1,8 @@
 
 import { useState } from "react"
-import "./PreviewCard.css"
+import "./PreviewCardMultimedia.css"
 
-export default function PreviewCard({ item }) {
+export default function PreviewCardMultimedia({ item }) {
     // console.log(item)
     const [videoMp4, setVideoMp4] = useState('')
     const [image, setImage] = useState('')
