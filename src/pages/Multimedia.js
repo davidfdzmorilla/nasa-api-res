@@ -54,7 +54,7 @@ export default function Multimedia() {
                 <div className="buttons-media-type-container">
                     <button className={mediaType === 'video' ? 'active' : ''} onClick={() => setMediaType('video')}>Videos</button>
                     <button className={mediaType === 'image' ? 'active' : ''} onClick={() => setMediaType('image')}>Images</button>
-                    <button className={mediaType === 'image,video' ? 'active' : ''} onClick={() => setMediaType('video,image')}>All</button>
+                    <button className={mediaType === 'image,video' ? 'active' : ''} onClick={() => setMediaType('image,video')}>All</button>
                 </div>
             </section>
             <section className="preview-container">
