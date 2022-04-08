@@ -1,7 +1,7 @@
 .images-videos-page {
     width: 100%;
-    /* min-height: 100vh; */
     display: flex;
+    background-image: url('../assets/jpg/stars-background.jpg');
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -67,11 +67,28 @@
 
 
 .images-videos-page .buttons-container {
-    flex-grow: 1;
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     gap: 2rem;
+}
+
+.images-videos-page .buttons-container span {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .images-videos-page .buttons-media-type-constainer {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .images-videos-page .buttons-media-type-constainer button {
+        width: 100%;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+
 }

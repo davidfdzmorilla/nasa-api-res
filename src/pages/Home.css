@@ -1,17 +1,19 @@
 .filter-background {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.407);
+    background-image: url('../assets/jpg/background.jpg');
+    background-size: cover;
 }
 
 
 .home-page {
-    margin-left: 300px;
+    padding-left: 300px;
     color: whitesmoke;
-    width: 60%;
+    box-sizing: border-box;
     height: 100%;
     display: flex;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.407);
 }
 
 
@@ -19,4 +21,14 @@
     font-size: 3.5rem;
     line-height: 100px;
     letter-spacing: 2px;
+}
+
+
+@media (max-width: 800px) {
+    .home-page h1 {
+        font-size: 1.5rem;
+        line-height: 100px;
+        letter-spacing: 1px;
+    }
+
 }

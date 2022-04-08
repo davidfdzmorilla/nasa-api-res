@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Loading from "../utils/Loading"
 import "./MarsWeather.css"
 
 export default function MarsWeather() {
@@ -20,26 +21,27 @@ export default function MarsWeather() {
             }
         }
         loadData()
-    }, [isLoading, weather])
+    }, [isLoading])
+
+    if (!weather) return <Loading />
+
     return (
         <main className="mars-weather-page">
-            <div className="filter-background">
-                <h2>Mars weather</h2>
-                <section className="weather-cards-container">
-                    {weather?.map(weatherDay => {
-                        return (
-                            <article className="weather-card">
-                                <h3>Sol {weatherDay.sol}</h3>
-                                <span> 📅 {weatherDay.terrestrial_date}</span>
-                                <p>Atmo: {weatherDay.atmo_opacity}</p>
-                                <p>☀️😎 {weatherDay.local_uv_irradiance_index}</p>
-                                <p>🌡️ {weatherDay.max_temp}ºC</p>
-                                <p>❄️ {weatherDay.min_temp}ºC</p>
-                            </article>
-                        )
-                    })}
-                </section>
-            </div>
+            <h2>Mars weather</h2>
+            <section className="weather-cards-container">
+                {weather?.map(weatherDay => {
+                    return (
+                        <article className="weather-card">
+                            <h3>Sol {weatherDay.sol}</h3>
+                            <span> 📅 {weatherDay.terrestrial_date}</span>
+                            <p>Atmo: {weatherDay.atmo_opacity}</p>
+                            <p>☀️😎 {weatherDay.local_uv_irradiance_index}</p>
+                            <p>🌡️ {weatherDay.max_temp}ºC</p>
+                            <p>❄️ {weatherDay.min_temp}ºC</p>
+                        </article>
+                    )
+                })}
+            </section>
         </main>
     )
 }
