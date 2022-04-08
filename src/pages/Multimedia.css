@@ -55,6 +55,10 @@
     font-weight: bold;
 }
 
+.images-videos-page .buttons-media-type-container button.active {
+    background-color: rgb(197, 70, 58);
+}
+
 
 .no-results {
     height: 300px;

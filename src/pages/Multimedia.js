@@ -52,9 +52,9 @@ export default function Multimedia() {
                     <input autoFocus value={title} onChange={e => setTitle(e.target.value)} type='text' placeholder='Search...' />
                 </form>
                 <div className="buttons-media-type-container">
-                    <button onClick={() => setMediaType('video')}>Videos</button>
-                    <button onClick={() => setMediaType('image')}>Images</button>
-                    <button onClick={() => setMediaType('video,image')}>All</button>
+                    <button className={mediaType === 'video' ? 'active' : ''} onClick={() => setMediaType('video')}>Videos</button>
+                    <button className={mediaType === 'image' ? 'active' : ''} onClick={() => setMediaType('image')}>Images</button>
+                    <button className={mediaType === 'video,image' ? 'active' : ''} onClick={() => setMediaType('video,image')}>All</button>
                 </div>
             </section>
             <section className="preview-container">
