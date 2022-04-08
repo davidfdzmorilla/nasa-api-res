@@ -5,7 +5,7 @@ export default function Header() {
     const navigate = useNavigate()
     return (
         <header>
-            <div onClick={() => navigate('/videos')} className="logo-container">
+            <div onClick={() => navigate('/')} className="logo-container">
                 <div className="logo" />
                 <h1 className="link-to-home">Api Nasa</h1>
             </div>
