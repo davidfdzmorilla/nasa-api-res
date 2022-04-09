@@ -50,6 +50,14 @@ export default function Main() {
     return (
         <main className="picture-of-the-day">
             <h2>NASA Astronomy Picture Of The Day</h2>
+            <form onSubmit={handleDay}>
+                <button onClick={handlePrevDay}>PREV</button>
+                <label>
+                    Choose date of the photo of the day
+                    <input value={date} max={new Date().toISOString().slice(0, 10)} onChange={e => setDate(e.target.value)} type='date' />
+                </label>
+                <button onClick={handleNextDay}>NEXT</button>
+            </form>
             <article className="card-image-of-day">
                 {data.media_type === 'image' && <img src={data.hdurl} title={data.title} alt={data.title} />}
                 {data.media_type === 'video' && <iframe width="760" height="415" src={data.url} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>}
@@ -59,14 +67,6 @@ export default function Main() {
                     <p className="card-iamge-of-day__explanation">{data.explanation}</p>
                 </section>
             </article>
-            <form onSubmit={handleDay}>
-                <button onClick={handlePrevDay}>PREV</button>
-                <label>
-                    Choose date of the photo of the day
-                    <input value={date} max={new Date().toISOString().slice(0, 10)} onChange={e => setDate(e.target.value)} type='date' />
-                </label>
-                <button onClick={handleNextDay}>NEXT</button>
-            </form>
         </main>
     )
 }
