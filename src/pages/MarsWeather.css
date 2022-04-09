@@ -31,7 +31,7 @@
 
 
 .mars-weather-page .weather-cards-container .weather-card {
-    background-color: rgba(37, 38, 39, 0.515);
+    background-color: rgba(114, 111, 111, 0.279);
     width: 200px;
     height: 300px;
     display: flex;
@@ -72,7 +72,7 @@
     font-size: 2.5rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .mars-weather-page {
         margin-left: 0;
         padding: 1rem;

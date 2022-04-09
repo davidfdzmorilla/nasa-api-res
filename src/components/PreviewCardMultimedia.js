@@ -11,7 +11,6 @@ export default function PreviewCardMultimedia({ item }) {
     const handleDataItem = async () => {
         const response = await fetch(item.dataJson)
         const dataItem = await response.json()
-        console.log(dataItem)
         if (item.mediaType === 'video') setVideoMp4(dataItem.filter((i) => i.includes("preview.mp4")))
         if (item.mediaType === 'image') setImage(dataItem.filter((i) => i.includes("large.jpg")))
     }
