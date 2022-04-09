@@ -1,6 +1,6 @@
 .filter-background {
     width: 100vw;
-    height: 100vh;
+    flex-grow: 1;
     background-image: url('../assets/jpg/background.jpg');
     background-size: cover;
     font-family: 'Press Start 2P', cursive;
@@ -8,28 +8,31 @@
 
 
 .home-page {
-    padding-left: 300px;
+    padding-left: 250px;
     color: whitesmoke;
     box-sizing: border-box;
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     background-color: rgba(0, 0, 0, 0.407);
 }
 
 
 .home-page h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     line-height: 100px;
     letter-spacing: 2px;
+    margin: 0;
 }
 
 
-@media (max-width: 800px) {
-    .home-page h1 {
-        font-size: 1.5rem;
-        line-height: 100px;
-        letter-spacing: 1px;
+@media (max-width: 768px) {
+    .home-page {
+        padding-left: 2rem;
     }
 
+    .home-page h1 {
+        display: none;
+    }
 }

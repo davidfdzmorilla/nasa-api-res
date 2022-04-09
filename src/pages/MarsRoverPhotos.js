@@ -42,7 +42,7 @@ export default function MarsRoverPhotos() {
                 })}
             </section>
             <section className="buttons-container">
-                <button onClick={() => setPage(page - 1)}>Anterior</button>
+                {page > 1 && <button onClick={() => setPage(page - 1)}>Anterior</button>}
                 <span>Page: {page < 1 ? setPage(1) : page}</span>
                 <button onClick={() => setPage(page + 1)}>Siguiente</button>
             </section>

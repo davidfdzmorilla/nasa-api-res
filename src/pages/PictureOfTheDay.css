@@ -1,11 +1,13 @@
 .picture-of-the-day {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-grow: 1;
     min-height: 100vh;
     margin-left: 200px;
+    padding: 2rem 1rem;
+    gap: 1rem;
 }
 
 .picture-of-the-day h2 {
@@ -53,8 +55,8 @@
 
 
 .picture-of-the-day .card-image-of-day {
-    width: 1000px;
-    height: 600px;
+    flex-grow: 1;
+    max-width: 800px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -63,6 +65,8 @@
     background-color: rgba(37, 38, 39, 0.515);
     border-radius: 15px;
     color: whitesmoke;
+    padding: 2rem;
+    gap: 1rem;
 }
 
 
@@ -71,12 +75,12 @@
     color: whitesmoke;
     padding: 0;
     margin: 0;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .picture-of-the-day .card-image-of-day img {
-    flex-grow: 1;
-    max-height: 400px;
+    width: 100%;
     border-radius: 15px;
 }
 
@@ -96,22 +100,61 @@
 }
 
 
-@media (max-width: 600px) {
-    .picture-of-the-day h2 {
-        width: 50%;
-        font-size: 1rem;
+@media (max-width: 768px) {
+    .picture-of-the-day {
+        margin-left: 0;
+        gap: 2rem;
+        padding: 2rem 0;
     }
 
-    .picture-of-the-day form label {
-        display: none;
+    .picture-of-the-day h2 {
+        font-size: 1.2rem;
+        width: 350px;
+        line-height: 30px
     }
 
     .picture-of-the-day .card-image-of-day {
-        width: 150px;
+        width: 100vw;
+        gap: 1rem;
+        padding: 0;
     }
 
     .picture-of-the-day .card-image-of-day img {
-        height: 100px;
-        border-radius: 15px;
+        width: 100%;
+    }
+
+    .picture-of-the-day .card-image-of-day .data-image {
+        padding: .5rem;
+    }
+
+    .picture-of-the-day .card-image-of-day span {
+        font-size: 1.5rem;
+    }
+
+    .picture-of-the-day form {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .picture-of-the-day form label {
+        width: 300px;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .picture-of-the-day form label input[type='date'] {
+        width: 300px;
+        height: 40px;
+        font-size: 1.2rem;
+        padding-left: 1rem;
+    }
+
+    .picture-of-the-day form button {
+        width: 350px;
+        height: 50px;
+        font-size: 1.2rem;
+        border-radius: none;
     }
 }
