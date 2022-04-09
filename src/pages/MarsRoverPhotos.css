@@ -28,19 +28,23 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: .5rem;
+    gap: 2rem;
 
 }
 
 
 .mars-rover-photos-page .mars-rover-photos-card {
-    width: 120px;
-    height: 120px;
+    width: 400px;
+    background-color: rgba(0, 0, 0, 0.34);
+    height: 400px;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
 }
 
 .mars-rover-photos-page .mars-rover-photos-card img {
-    width: 120px;
-    height: 120px;
+    width: 100%;
     cursor: pointer;
 }
 
@@ -74,11 +78,36 @@
 
 
 @media (max-width: 600px) {
+    .mars-rover-photos-page {
+        margin-left: 0;
+        padding: 2rem 0;
+    }
+
     .mars-rover-photos-page .photos-container {
         flex-direction: column;
+    }
+
+    .mars-rover-photos-page .mars-rover-photos-card {
+        width: 100%;
+        padding: 0;
+    }
+
+    .mars-rover-photos-page .mars-rover-photos-card img {
+        width: 100%;
     }
 
     .mars-rover-photos-page .buttons-container {
         flex-direction: column;
     }
+
+    .mars-rover-photos-page .buttons-container button {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .mars-rover-photos-page .buttons-container span {
+        font-size: 1.3rem;
+    }
+
 }
