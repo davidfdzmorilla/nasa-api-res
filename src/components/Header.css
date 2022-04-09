@@ -2,7 +2,6 @@ header {
     color: whitesmoke;
     background-color: #2d3436;
     width: 200px;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -10,6 +9,7 @@ header {
     position: fixed;
     font-family: 'Trispace', sans-serif;
     top: 0;
+    bottom: 0;
     left: 0;
 }
 
@@ -65,6 +65,10 @@ header ul li .link-menu-item {
     color: whitesmoke;
 }
 
+header ul li:nth-child(5) {
+    border-bottom: 1px solid white;
+}
+
 
 header ul li .active {
     color: #3e5e94;
@@ -95,9 +99,55 @@ header .links-logos-container .github-logo {
 }
 
 
+header .close-icon-container {
+    display: none;
+}
+
 header .links-logos-container .portfolio-logo {
     background-image: url('../assets/png/www.png');
     background-size: cover;
     width: 35px;
     height: 35px;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        width: 100vw;
+        display: flex;
+        position: relative;
+    }
+
+    header .logo-container {
+        width: 100%;
+        padding: 1rem 0;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 1rem;
+    }
+
+    header .logo {
+        width: 150px;
+        height: 122px;
+    }
+
+    header .link-to-home {
+        font-size: 3rem;
+        text-align: right;
+        width: min-content;
+    }
+
+    header .links-logos-container {
+        display: none;
+    }
+
+    header .myName {
+        display: none;
+    }
+
+    header .close-icon-container {
+        display: inline-block;
+        text-align: center;
+        padding: 1rem 0 0;
+    }
 }
