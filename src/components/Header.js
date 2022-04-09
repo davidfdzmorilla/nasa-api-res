@@ -16,19 +16,19 @@ export default function Header() {
                 {!showBar ? <li className='menu-icon-container' onClick={() => setShowBar(!showBar)}><h3>MENU</h3></li>
                     : <>
                         <li>
-                            <Link className={(pathName === '/multimedia') ? 'active link-menu-item' : 'link-menu-item'} to='/multimedia'>MULTIMEDIA</Link>
+                            <Link onClick={() => setShowBar(!showBar)} className={(pathName === '/multimedia') ? 'active link-menu-item' : 'link-menu-item'} to='/multimedia'>MULTIMEDIA</Link>
                         </li>
                         <li>
-                            <Link className={(pathName === '/mars-weather') ? 'active link-menu-item' : 'link-menu-item'} to='/mars-weather'>MARS WEATHER</Link>
+                            <Link onClick={() => setShowBar(!showBar)} className={(pathName === '/mars-weather') ? 'active link-menu-item' : 'link-menu-item'} to='/mars-weather'>MARS WEATHER</Link>
                         </li>
                         <li>
-                            <Link className={(pathName === '/mars-rover-photos') ? 'active link-menu-item' : 'link-menu-item'} to='/mars-rover-photos'>MARS ROVER PHOTOS</Link>
+                            <Link onClick={() => setShowBar(!showBar)} className={(pathName === '/mars-rover-photos') ? 'active link-menu-item' : 'link-menu-item'} to='/mars-rover-photos'>MARS ROVER PHOTOS</Link>
                         </li>
                         <li>
-                            <Link className={(pathName === '/picture-of-the-day') ? 'active link-menu-item' : 'link-menu-item'} to='/picture-of-the-day'>PICTURE OF THE DAY</Link>
+                            <Link onClick={() => setShowBar(!showBar)} className={(pathName === '/picture-of-the-day') ? 'active link-menu-item' : 'link-menu-item'} to='/picture-of-the-day'>PICTURE OF THE DAY</Link>
                         </li>
                         <li>
-                            <Link className={(pathName === '/epic') ? 'active link-menu-item' : 'link-menu-item'} to='/epic'>EPIC</Link>
+                            <Link onClick={() => setShowBar(!showBar)} className={(pathName === '/epic') ? 'active link-menu-item' : 'link-menu-item'} to='/epic'>EPIC</Link>
                         </li>
                         <div className='close-icon-container'>
                             <span className='close-bar-icon' onClick={() => setShowBar(!showBar)}>

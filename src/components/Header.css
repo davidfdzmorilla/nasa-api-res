@@ -120,9 +120,9 @@ header .links-logos-container .portfolio-logo {
 
     header .logo-container {
         width: 100%;
-        padding: 1rem 0;
+        padding: 1rem 0 0;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         gap: 1rem;
     }
 
@@ -132,17 +132,9 @@ header .links-logos-container .portfolio-logo {
     }
 
     header .link-to-home {
-        font-size: 3rem;
+        font-size: 2.5rem;
         text-align: right;
         width: min-content;
-    }
-
-    header .links-logos-container {
-        display: none;
-    }
-
-    header .myName {
-        display: none;
     }
 
     header .close-icon-container {
