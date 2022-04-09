@@ -1,23 +1,29 @@
 .epic-page {
     min-height: 100vh;
-    flex-grow: 1;
     display: flex;
     margin-left: 200px;
     align-items: center;
+    flex-direction: column;
     justify-content: space-around;
     flex-wrap: wrap;
     box-sizing: border-box;
-    overflow: hidden;
+    padding: 2rem 0 2rem;
+    gap: 2rem;
+}
+
+.epic-page h2 {
+    margin: 0 auto;
+    font-family: 'Press Start 2P', cursive;
+    color: whitesmoke;
+    padding: 0;
+
 }
 
 
 .epic-page .menu-filter {
-    height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
-    background-color: #636e72;
     gap: 2rem;
 }
 
@@ -25,9 +31,9 @@
 .epic-page .menu-filter form {
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    padding: 1rem;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1rem;
     width: 100%;
 }
 
@@ -36,62 +42,57 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: .5rem;
 }
 
 
 .epic-page .menu-filter form label input[type='date'],
-.epic-page .menu-filter form label select {
+.epic-page .menu-filter form select {
+    width: 300px;
+    height: 30px;
     font-size: .7rem;
-    padding: .5rem;
     border: none;
     border-radius: 5px;
+    font-size: 1rem;
 }
 
 .epic-page .menu-filter form button {
     background-color: #0a3a8a;
+    width: 200px;
+    height: 30px;
     border: none;
     border-radius: 5px;
     color: whitesmoke;
     font-weight: bold;
-    padding: .2rem;
-}
-
-
-.epic-page .menu-filter ul {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 0;
-}
-
-
-.epic-page .menu-filter ul h3 {
-    padding-left: 1rem;
-}
-
-
-.epic-page .menu-filter ul li {
-    list-style: none;
-    cursor: pointer;
-    width: 100%;
-    height: 30px;
-    border-top: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: .9rem;
-}
-
-.epic-page .menu-filter ul li:last-child {
-    border-bottom: 1px solid black;
+    padding: .5rem;
 }
 
 
 @media (max-width: 968px) {
-    .epic-page .menu-filter {
-        display: none;
+    .epic-page {
+        margin-left: 0;
     }
+
+    .epic-page .menu-filter form {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .epic-page .menu-filter form label input[type='date'],
+    .epic-page .menu-filter form select {
+        width: 350px;
+        height: 40px;
+        padding: 0 .5rem;
+    }
+
+    .epic-page .menu-filter form button {
+        width: 350px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+
 }

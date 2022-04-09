@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react"
 import "./EpicImage.css"
 
-export default function EpicImage({ imageData, filterCollection }) {
-    const [url, setUrl] = useState('')
-    const date = new Date(imageData.date?.slice(0, 10))
+export default function EpicImage({ data, filterCollection, dateImage }) {
+    const date = new Date(dateImage)
+    const imageType = 'png'
     let dd = date.getDate()
     let mm = date.getMonth() + 1
     let yyyy = date.getFullYear()
@@ -14,55 +13,76 @@ export default function EpicImage({ imageData, filterCollection }) {
         mm = '0' + mm
     }
     const formatedDate = yyyy + '/' + mm + '/' + dd
-    const imageType = 'png'
-    const imageName = imageData.image
-    useEffect(() => {
-        setUrl(`https://epic.gsfc.nasa.gov/archive/${filterCollection}/${formatedDate}/${imageType}/${imageName}.${imageType}`)
-
-    }, [url, filterCollection, formatedDate, imageName])
-
+    const newData = data?.map(item => {
+        return {
+            date: item.date,
+            url: `https://epic.gsfc.nasa.gov/archive/${filterCollection}/${formatedDate}/${imageType}/${item.image}.${imageType}`,
+            coords: {
+                lat: item.centroid_coordinates.lat,
+                long: item.centroid_coordinates.lon
+            },
+            DSCOVRPos: {
+                x: item.dscovr_j2000_position.x,
+                y: item.dscovr_j2000_position.y,
+                z: item.dscovr_j2000_position.z
+            },
+            lunarPos: {
+                x: item.lunar_j2000_position.x,
+                y: item.lunar_j2000_position.y,
+                z: item.lunar_j2000_position.z
+            },
+            sunPos: {
+                x: item.sun_j2000_position.x,
+                y: item.sun_j2000_position.y,
+                z: item.sun_j2000_position.z
+            }
+        }
+    })
 
     return (
-        <section className="epic-image-container">
-            <h2>EPIC IMAGES</h2>
-            {filterCollection && imageData &&
-                <article className="epic-image-card">
-                    <span className="date">📆 {imageData.date}</span>
-                    <img src={url} title={imageName} alt={imageName} />
-                    <section className="epic-image__data">
-                        <div className="epic-image__data-items">
-                            <p>Coords</p>
-                            <div>
-                                <p>lat: <span>{imageData.centroid_coordinates.lat}</span></p>
-                                <p>lon: <span>{imageData.centroid_coordinates.lon}</span></p>
+        <section className="epic-images-container">
+            {filterCollection && newData && newData.map(item => {
+                return (
+                    <article className="epic-image-card">
+                        <span className="date">📆 {item.date}</span>
+                        <img src={item.url} title={item.url} alt={item.url} />
+                        <section className="epic-image__data">
+                            <div className="epic-image__data-items">
+                                <p>Coords</p>
+                                <div>
+                                    <p>lat: <span>{item.coords.lat}</span></p>
+                                    <p>lon: <span>{item.coords.long}</span></p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="epic-image__data-items">
-                            <p>DSCOVR position</p>
-                            <div>
-                                <p>x: <span>{imageData.dscovr_j2000_position.x}</span></p>
-                                <p>y: <span>{imageData.dscovr_j2000_position.y}</span></p>
-                                <p>z: <span>{imageData.dscovr_j2000_position.z}</span></p>
+                            <div className="epic-image__data-items">
+                                <p>DSCOVR position</p>
+                                <div>
+                                    <p>x: <span>{item.DSCOVRPos.x}</span></p>
+                                    <p>y: <span>{item.DSCOVRPos.y}</span></p>
+                                    <p>z: <span>{item.DSCOVRPos.z}</span></p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="epic-image__data-items">
-                            <p>Lunar position</p>
-                            <div>
-                                <p>x: <span>{imageData.lunar_j2000_position.x}</span></p>
-                                <p>y: <span>{imageData.lunar_j2000_position.y}</span></p>
-                                <p>z: <span>{imageData.lunar_j2000_position.z}</span></p>
+                            <div className="epic-image__data-items">
+                                <p>Lunar position</p>
+                                <div>
+                                    <p>x: <span>{item.lunarPos.x}</span></p>
+                                    <p>y: <span>{item.lunarPos.y}</span></p>
+                                    <p>z: <span>{item.lunarPos.z}</span></p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="epic-image__data-items">
-                            <p>Sun position</p>
-                            <div>
-                                <p>x: <span>{imageData.sun_j2000_position.x}</span></p>
-                                <p>y: <span>{imageData.sun_j2000_position.y}</span></p>
-                                <p>z: <span>{imageData.sun_j2000_position.z}</span></p>
+                            <div className="epic-image__data-items">
+                                <p>Sun position</p>
+                                <div>
+                                    <p>x: <span>{item.sunPos.x}</span></p>
+                                    <p>y: <span>{item.sunPos.y}</span></p>
+                                    <p>z: <span>{item.sunPos.z}</span></p>
+                                </div>
                             </div>
-                        </div>
-                    </section>
-                </article>
+                        </section>
+                    </article>
+                )
+            })
+
             }
         </section>
     )

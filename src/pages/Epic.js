@@ -8,7 +8,6 @@ export default function Epic() {
     const [data, setData] = useState(null)
     const [filterCollection, setFilterCollection] = useState('natural')
     const [url, setUrl] = useState(`https://api.nasa.gov/EPIC/api/${filterCollection}?api_key=3bCO3vHTdW0kbNyMN986HguufD9aXbwb79KATW3d`)
-    const [imageData, setImageData] = useState({})
     const [dateImage, setDateImage] = useState('')
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
@@ -19,9 +18,9 @@ export default function Epic() {
                 const response = await fetch(url)
                 const data = await response.json()
                 setData(data)
+                setDateImage(data[0].date.slice(0, 10))
                 setError(null)
                 setIsLoading(true)
-                setImageData(data[0])
             } catch (error) {
                 setError(error)
             }
@@ -38,11 +37,12 @@ export default function Epic() {
 
     return (
         <main className="epic-page">
+            <h2>EPIC IMAGES</h2>
             <section className="menu-filter">
                 <form onSubmit={handleSubmit}>
                     <label>
                         Filter
-                        <input type='date' onChange={e => setDateImage(e.target.value)} max={new Date().toISOString().slice(0, 10)} />
+                        <input type='date' value={dateImage} onChange={e => setDateImage(e.target.value)} max={new Date().toISOString().slice(0, 10)} />
                     </label>
                     <select onChange={e => setFilterCollection(e.target.value)}>
                         <option value='natural' defaultValue>Natural</option>
@@ -50,18 +50,8 @@ export default function Epic() {
                     </select>
                     <button>Enviar</button>
                 </form>
-                <ul>
-                    <h3>Pictures List</h3>
-                    {data.length > 0 ? data?.map(item => {
-                        return (
-                            <li key={Math.random()} onClick={() => setImageData(item)}>
-                                {item.date}
-                            </li>
-                        )
-                    }) : <p>Lo sentimos, no hay fotos para la fecha seleccionada.</p>}
-                </ul>
             </section>
-            {imageData?.image && <EpicImage imageData={imageData} filterCollection={filterCollection} />}
+            {data && <EpicImage data={data} filterCollection={filterCollection} dateImage={dateImage} />}
         </main>
     )
 }
