@@ -132,19 +132,20 @@
     }
 
     .picture-of-the-day form {
+        width: 90%;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     .picture-of-the-day form label {
-        width: 400px;
+        width: 300px;
         flex-direction: row;
         flex-wrap: wrap;
     }
 
     .picture-of-the-day form label input[type='date'] {
-        width: 400px;
+        width: 300px;
         height: 40px;
         font-size: 1.2rem;
         padding-left: 1rem;
