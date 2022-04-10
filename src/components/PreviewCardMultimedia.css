@@ -91,6 +91,7 @@
     .images-videos-page .preview-container .preview-card {
         width: 100%;
         gap: 1rem;
+        padding: .7rem 0;
     }
 
     .preview-card img {

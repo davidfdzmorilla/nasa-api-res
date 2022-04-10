@@ -8,7 +8,6 @@
     color: whitesmoke;
     background-image: url('../assets/jpg/rover-curiosity.jpg');
     background-size: cover;
-
     padding: 2rem 0 0 0;
 }
 
@@ -26,7 +25,6 @@
     gap: 2rem;
     background-color: rgba(0, 0, 0, 0.214);
     border-radius: 30px;
-    /* padding: 2rem; */
 }
 
 
@@ -75,7 +73,7 @@
 @media (max-width: 768px) {
     .mars-weather-page {
         margin-left: 0;
-        padding: 1rem;
+        padding: 2rem 0;
         height: min-content;
         gap: 2rem;
     }
@@ -86,7 +84,7 @@
     }
 
     .mars-weather-page .weather-cards-container .weather-card {
-        width: 90%;
+        width: 100%;
         flex-direction: row;
     }
 

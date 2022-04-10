@@ -67,17 +67,17 @@ export default function Multimedia({ scrollY }) {
                         <PreviewCardMultimedia key={Math.random()} item={item} />
                     )
                 }) : <p className="no-results">No hay resultados</p>}
-                <div className="buttons-container">
-                    <span onClick={() => {
+                <section className="buttons-container">
+                    {page > 1 && <button onClick={() => {
                         setPage(Number(page) - 1)
                         handleClickScrollUp()
-                    }}>{Number(page) !== 1 && '⬅️'}</span>
-                    <p>Page: {page}</p>
-                    <span onClick={() => {
+                    }}>Anterior</button>}
+                    <span>Page: {page < 1 ? setPage(1) : page}</span>
+                    <button onClick={() => {
                         setPage(Number(page) + 1)
                         handleClickScrollUp()
-                    }}>➡️</span>
-                </div>
+                    }}>Next</button>
+                </section>
             </section>
             {Number(scrollY) > 200 && <span className="scroll-up-button" onClick={handleClickScrollUp}>⬆️</span>}
         </main>
