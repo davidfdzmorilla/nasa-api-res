@@ -31,7 +31,7 @@
     border: none;
     border-radius: 5px;
     background-color: #0a3a8a;
-    color: whitesmoke;
+    color: #d2dae2;
     font-weight: bold;
     cursor: pointer;
 }
@@ -44,7 +44,7 @@
     align-items: center;
     width: 300px;
     gap: .5rem;
-    color: whitesmoke;
+    color: #d2dae2;
     font-weight: bold;
 }
 
@@ -68,7 +68,7 @@
     padding: .5rem;
     background-color: rgba(37, 38, 39, 0.515);
     border-radius: 15px;
-    color: whitesmoke;
+    color: #d2dae2;
     padding: 2rem;
     gap: 1rem;
 }
@@ -76,7 +76,7 @@
 
 .picture-of-the-day h2,
 .picture-of-the-day .card-image-of-day span {
-    color: whitesmoke;
+    color: #d2dae2;
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
