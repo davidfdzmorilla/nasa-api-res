@@ -17,7 +17,7 @@
     gap: 1rem;
     background-color: rgba(114, 111, 111, 0.279);
     border-radius: 15px;
-    color: whitesmoke;
+    color: #d2dae2;
     padding: 1rem;
     font-size: .7rem;
 }
@@ -48,11 +48,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: #d63031;
 }
 
 
 .epic-page .epic-images-container .epic-image-card .epic-image__data span {
-    color: green;
+    color: #55efc4;
     font-weight: normal;
 }
 

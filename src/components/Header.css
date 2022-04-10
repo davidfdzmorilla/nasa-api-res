@@ -1,6 +1,6 @@
 header {
     color: whitesmoke;
-    background-color: #2d3436;
+    background-color: #1e272e;
     width: 200px;
     display: flex;
     flex-direction: column;
@@ -31,7 +31,7 @@ header .logo {
 
 header .link-to-home {
     font-size: 2rem;
-    color: whitesmoke;
+    color: #d2dae2;
     font-weight: bolder;
     margin: 0;
 }
@@ -51,27 +51,22 @@ header ul li {
     align-items: center;
     height: 50px;
     list-style: none;
-    border-top: 1px solid white;
-}
-
-
-header ul li:last-child {
-    border-bottom: 1px solid white;
+    border-top: 1px solid #808e9b;
 }
 
 
 header ul li .link-menu-item {
     text-decoration: none;
-    color: whitesmoke;
+    color: #d2dae2;
 }
 
 header ul li:nth-child(5) {
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #808e9b;
 }
 
 
 header ul li .active {
-    color: #3e5e94;
+    color: #0984e3;
     font-weight: bolder;
 }
 

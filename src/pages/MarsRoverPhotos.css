@@ -12,12 +12,12 @@
     background-image: url('../assets/jpg/stars-background.jpg');
     background-size: contain;
     background-position: center;
+    color: #d2dae2;
 }
 
 
 .mars-rover-photos-page h2 {
     width: 100%;
-    color: whitesmoke;
     font-family: 'Press Start 2P', cursive;
     text-align: center;
 }
@@ -68,12 +68,12 @@
     font-weight: bold;
     cursor: pointer;
     background-color: #3e5e94;
-    color: whitesmoke;
+    color: #d2dae2;
 }
 
 
 .mars-rover-photos-page .buttons-container span {
-    color: whitesmoke;
+    color: #d2dae2;
     font-size: 1.3rem;
     font-weight: bold;
 }
