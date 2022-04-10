@@ -5,7 +5,7 @@ import PreviewCardMultimedia from "../components/PreviewCardMultimedia"
 import "./Multimedia.css"
 
 
-export default function Multimedia() {
+export default function Multimedia({ scrollY }) {
     const [data, setData] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(false)
@@ -15,6 +15,10 @@ export default function Multimedia() {
     let url = `https://images-api.nasa.gov/search?q=${title || 'nasa'}`
     if (page) url += `&page=${page}`
     if (mediaType) url += `&media_type=${mediaType}`
+
+    const handleClickScrollUp = () => {
+        window.scroll(0, document.getElementsByClassName('images-videos-page')?.offsetTop)
+    }
 
     useEffect(() => {
         const loadData = async () => {
@@ -40,7 +44,7 @@ export default function Multimedia() {
             }
         }
         loadData()
-    }, [isLoading, url, page, title, mediaType])
+    }, [isLoading, mediaType, page, url])
 
     if (!data) return <Loading />
 
@@ -64,11 +68,18 @@ export default function Multimedia() {
                     )
                 }) : <p className="no-results">No hay resultados</p>}
                 <div className="buttons-container">
-                    <span onClick={() => setPage(Number(page) - 1)}>{Number(page) !== 1 && '⬅️'}</span>
-                    <p>{page}</p>
-                    <span onClick={() => setPage(Number(page) + 1)}>➡️</span>
+                    <span onClick={() => {
+                        setPage(Number(page) - 1)
+                        handleClickScrollUp()
+                    }}>{Number(page) !== 1 && '⬅️'}</span>
+                    <p>Page: {page}</p>
+                    <span onClick={() => {
+                        setPage(Number(page) + 1)
+                        handleClickScrollUp()
+                    }}>➡️</span>
                 </div>
             </section>
+            {Number(scrollY) > 200 && <span className="scroll-up-button" onClick={handleClickScrollUp}>⬆️</span>}
         </main>
     )
 }
