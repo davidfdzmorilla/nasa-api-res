@@ -12,6 +12,7 @@ export default function Multimedia({ scrollY }) {
     const [page, setPage] = useState('1')
     const [title, setTitle] = useState('')
     const [mediaType, setMediaType] = useState('image,video')
+
     let url = `https://images-api.nasa.gov/search?q=${title || 'nasa'}`
     if (page) url += `&page=${page}`
     if (mediaType) url += `&media_type=${mediaType}`
@@ -38,7 +39,6 @@ export default function Multimedia({ scrollY }) {
                 })
                 setData(imagesArray)
                 setPage(page)
-
             } catch (error) {
                 setError(error)
             }
