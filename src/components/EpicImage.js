@@ -1,3 +1,4 @@
+import LazyLoad from "react-lazy-load"
 import "./EpicImage.css"
 
 export default function EpicImage({ data, filterCollection, dateImage }) {
@@ -43,9 +44,11 @@ export default function EpicImage({ data, filterCollection, dateImage }) {
         <section className="epic-images-container">
             {filterCollection && newData && newData.map(item => {
                 return (
-                    <article className="epic-image-card">
+                    <article key={Math.random()} className="epic-image-card">
                         <span className="date">📆 {item.date}</span>
-                        <img src={item.url} title={item.url} alt={item.url} />
+                        <LazyLoad width={"100%"} debounce={false} offsetVertical={200}>
+                            <img src={item.url} title={item.url} alt={item.url} />
+                        </LazyLoad>
                         <section className="epic-image__data">
                             <div className="epic-image__data-items">
                                 <p>Coords</p>

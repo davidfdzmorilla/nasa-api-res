@@ -9,6 +9,9 @@
     box-sizing: border-box;
     padding: 2rem 0 2rem;
     gap: 2rem;
+    background-image: url('../assets/jpg/stars-background.jpg');
+    background-size: contain;
+    background-position: center;
 }
 
 .epic-page h2 {
@@ -69,6 +72,14 @@
     padding: .5rem;
 }
 
+.epic-page .scroll-up-button {
+    font-size: 2.5rem;
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    cursor: pointer;
+}
+
 
 @media (max-width: 968px) {
     .epic-page {
@@ -93,6 +104,10 @@
         width: 350px;
         height: 40px;
         font-size: 1.3rem;
+    }
+
+    .epic-page .scroll-up-button {
+        display: none;
     }
 
 }

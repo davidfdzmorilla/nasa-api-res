@@ -1,6 +1,6 @@
 .images-videos-page .preview-container .preview-card {
     width: 400px;
-    height: 450px;
+    min-height: 450px;
     background-color: rgba(129, 125, 125, 0.253);
     display: flex;
     flex-direction: column;
