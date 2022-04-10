@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import LazyLoad from "react-lazy-load"
 import "./EpicImage.css"
 
@@ -17,7 +18,7 @@ export default function EpicImage({ data, filterCollection, dateImage }) {
     const newData = data?.map(item => {
         return {
             date: item.date,
-            url: `https://epic.gsfc.nasa.gov/archive/${filterCollection}/${formatedDate}/${imageType}/${item.image}.${imageType}`,
+            url: `https://epic.gsfc.nasa.gov/archive/${filterCollection}/${formatedDate && formatedDate}/${imageType}/${item.image}.${imageType}`,
             coords: {
                 lat: item.centroid_coordinates.lat,
                 long: item.centroid_coordinates.lon

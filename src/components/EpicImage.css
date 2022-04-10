@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    padding-bottom: 4rem;
 }
 
 .epic-page .epic-images-container .epic-image-card {

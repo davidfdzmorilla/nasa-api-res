@@ -7,7 +7,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
     box-sizing: border-box;
-    padding: 2rem 0 2rem;
+    padding: 2rem 0 2rem 0;
     gap: 2rem;
     background-image: url('../assets/jpg/stars-background.jpg');
     background-size: contain;

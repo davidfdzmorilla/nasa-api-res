@@ -32,27 +32,25 @@ export default function Epic({ scrollY }) {
         loadData()
     }, [isLoading, url, filterCollection])
 
-    const handleSubmit = e => {
-        e.preventDefault()
-        setUrl(`https://api.nasa.gov/EPIC/api/${filterCollection}/date/${dateImage.slice(0, 10)}?api_key=3bCO3vHTdW0kbNyMN986HguufD9aXbwb79KATW3d`)
-    }
-
     if (!data) return <Loading />
 
     return (
         <main className="epic-page">
             <h2>EPIC IMAGES</h2>
             <section className="menu-filter">
-                <form onSubmit={handleSubmit}>
+                <form>
                     <label>
                         Filter
-                        <input type='date' value={dateImage} onChange={e => setDateImage(e.target.value)} max={new Date().toISOString().slice(0, 10)} />
+                        <input type='date' value={dateImage} onChange={e => {
+                            setDateImage(e.target.value)
+                            setIsLoading(!isLoading)
+                        }} max={new Date().toISOString().slice(0, 10)} />
                     </label>
-                    <select onChange={e => setFilterCollection(e.target.value)}>
-                        <option value='natural' defaultValue>Natural</option>
-                        <option value='enhanced'>Enhanced</option>
+                    {/* <select>
+                        <option onClick={e => {setFilterCollection(e.target.value)}} value='natural' defaultValue>Natural</option>
+                        <option onClick={e => setFilterCollection(e.target.value)} value='enhanced'>Enhanced</option>
                     </select>
-                    <button>Search</button>
+                    <button>Search</button> */}
                 </form>
             </section>
             {Number(scrollY) > 200 && <span className="scroll-up-button" onClick={handleClickScrollUp}>⬆️</span>}

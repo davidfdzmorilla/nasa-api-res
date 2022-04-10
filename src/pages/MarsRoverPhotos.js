@@ -11,10 +11,11 @@ export default function MarsRoverPhotos({ scrollY }) {
     const [page, setPage] = useState(1)
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
+
     const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${page}&api_key=${API_KEY}`
 
     const handleClickScrollUp = () => {
-        window.scroll(0, document.getElementsByClassName('images-videos-page')?.offsetTop)
+        window.scroll(0, document.getElementsByClassName('mars-rover-photos-page')?.offsetTop)
     }
 
     useEffect(() => {
@@ -33,6 +34,7 @@ export default function MarsRoverPhotos({ scrollY }) {
     }, [isLoading, url, page])
 
     if (!data) return <Loading />
+
     return (
         <main className="mars-rover-photos-page">
             <h2>Mars Rover Photos</h2>
@@ -60,6 +62,7 @@ export default function MarsRoverPhotos({ scrollY }) {
                     handleClickScrollUp()
                 }}>Next</button>
             </section>
+            {Number(scrollY) > 200 && <span className="scroll-up-button" onClick={handleClickScrollUp}>⬆️</span>}
         </main>
     )
 }
