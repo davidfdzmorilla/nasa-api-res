@@ -1,5 +1,9 @@
 @import "normalize.css";
 
+* {
+  scroll-behavior: smooth;
+}
+
 .App {
   margin: 0;
   padding: 0;
