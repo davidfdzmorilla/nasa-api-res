@@ -12,12 +12,10 @@
 }
 
 
-.images-videos-page .preview-container .preview-card span {
+.images-videos-page .preview-container .preview-card .icon-mediatype {
     align-self: flex-start;
-    font-size: 1.5rem;
-    background-color: rgba(214, 218, 244, 0.732);
+    font-size: 2rem;
     padding: .5rem;
-    border-radius: 50%;
 }
 
 

@@ -1,14 +1,15 @@
 
 import { useState } from "react"
 import LazyLoad from "react-lazy-load"
+import { AiOutlineVideoCamera, AiOutlineCamera } from 'react-icons/ai';
 import "./PreviewCardMultimedia.css"
 
 export default function PreviewCardMultimedia({ item }) {
     const [videoMp4, setVideoMp4] = useState('')
     const [image, setImage] = useState('')
-    let emojiMediaType
-    if (item.mediaType === 'video') emojiMediaType = '🎥'
-    if (item.mediaType === 'image') emojiMediaType = '📷'
+    let iconMediaType
+    if (item.mediaType === 'video') iconMediaType = <AiOutlineVideoCamera className="icon-mediatype" />
+    if (item.mediaType === 'image') iconMediaType = <AiOutlineCamera className="icon-mediatype" />
     const handleDataItem = async () => {
         const response = await fetch(item.dataJson)
         if (response.ok) {
@@ -23,7 +24,7 @@ export default function PreviewCardMultimedia({ item }) {
 
     return (
         <article className="preview-card">
-            <span>{emojiMediaType}</span>
+            {iconMediaType}
             <LazyLoad width={"100%"} debounce={false} offsetVertical={200}>
                 <img onClick={handleDataItem} width='200px' height='200px' src={item.urlImage} alt='Access Denied' />
             </LazyLoad>
