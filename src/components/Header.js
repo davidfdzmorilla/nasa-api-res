@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
+import { FaGithub, FaLinkedin, FaLink } from 'react-icons/fa';
 import "./Header.css"
 
 export default function Header() {
@@ -48,11 +49,10 @@ export default function Header() {
             <div />
             <div>
                 <div className="links-logos-container">
-                    <a href="https://www.linkedin.com/in/davidfdzmorilla/" target='_blank' rel="nopener noreferrer"><div className="linkedin-logo" /></a>
-                    <a href="https://github.com/davidfdzmorilla" target='_blank' rel="nopener noreferrer"><div className="github-logo" /></a>
-                    <a href="https://davidfdzmorilla.dev" target='_blank' rel="nopener noreferrer"><div className="portfolio-logo" /></a>
+                    <a href="https://www.linkedin.com/in/davidfdzmorilla/" target='_blank' rel="nopener noreferrer"><FaLinkedin className="rss-logo" /></a>
+                    <a href="https://github.com/davidfdzmorilla" target='_blank' rel="nopener noreferrer"><FaGithub className="rss-logo" /></a>
                 </div>
-                <p className="myName">davidfdzmorilla</p>
+                <a href="https://davidfdzmorilla.dev" target='_blank' rel="nopener noreferrer" className="myName">davidfdzmorilla.dev</a>
             </div>
         </header>
     )

@@ -11,6 +11,7 @@ header {
     top: 0;
     bottom: 0;
     left: 0;
+    padding-bottom: 1rem;
 }
 
 header .logo-container {
@@ -76,21 +77,22 @@ header .links-logos-container {
     width: 100%;
     justify-content: center;
     gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 
-header .links-logos-container .linkedin-logo {
-    background-image: url('../assets/png/linkedin.png');
+
+header .links-logos-container .rss-logo {
+    color: #d2dae2;
     background-size: cover;
     width: 35px;
     height: 35px;
 }
 
-header .links-logos-container .github-logo {
-    background-image: url('../assets/png/signo-de-github.png');
-    background-size: cover;
-    width: 35px;
-    height: 35px;
+header .myName {
+    text-decoration: none;
+    color: #d2dae2;
+    padding: 2rem 0;
 }
 
 
@@ -98,12 +100,6 @@ header .close-icon-container {
     display: none;
 }
 
-header .links-logos-container .portfolio-logo {
-    background-image: url('../assets/png/www.png');
-    background-size: cover;
-    width: 35px;
-    height: 35px;
-}
 
 
 @media (max-width: 768px) {
