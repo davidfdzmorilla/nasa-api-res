@@ -61,6 +61,7 @@ export default function Multimedia({ scrollY }) {
                     <button className={mediaType === 'image,video' ? 'active' : ''} onClick={() => setMediaType('image,video')}>All</button>
                 </div>
             </section>
+            {error && <h3>{error}</h3>}
             <section className="preview-container">
                 {data?.length > 1 ? data?.map(item => {
                     return (
