@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react"
+import { FormMultimedia } from "../components/FormMultimedia"
 import Loading from "../components/Loading"
 import PreviewCardMultimedia from "../components/PreviewCardMultimedia"
 import "./Multimedia.css"
@@ -51,16 +52,12 @@ export default function Multimedia({ scrollY }) {
     return (
         <main className="images-videos-page">
             <h2>Multimedia</h2>
-            <section className="search-container">
-                <form>
-                    <input autoFocus value={title} onChange={e => setTitle(e.target.value)} type='text' placeholder='Search...' />
-                </form>
-                <div className="buttons-media-type-container">
-                    <button className={mediaType === 'video' ? 'active' : ''} onClick={() => setMediaType('video')}>Videos</button>
-                    <button className={mediaType === 'image' ? 'active' : ''} onClick={() => setMediaType('image')}>Images</button>
-                    <button className={mediaType === 'image,video' ? 'active' : ''} onClick={() => setMediaType('image,video')}>All</button>
-                </div>
-            </section>
+            <FormMultimedia
+                title={title}
+                setTitle={setTitle}
+                mediaType={mediaType}
+                setMediaType={setMediaType}
+            />
             {error && <h3>{error}</h3>}
             <section className="preview-container">
                 {data?.length > 1 ? data?.map(item => {

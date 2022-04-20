@@ -2,7 +2,7 @@
 import { useState } from "react";
 import './App.css';
 import Header from './components/Header';
-import ErrorBoundary from './utils/ErrorBoundary';
+import ErrorBoundary from './components/ErrorBoundary';
 import { RoutesComponent } from "./routes/RoutesComponent";
 
 function App() {
