@@ -1,6 +1,9 @@
 services:
   nasa-api-res-react-app:
-    build: .
+    build:
+      context: .
+      args:
+        - REACT_APP_NASA_API_KEY=${REACT_APP_NASA_API_KEY}
     ports:
       - "3001:80"
     networks:
