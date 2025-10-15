@@ -7,7 +7,6 @@ const API_KEY = process.env.REACT_APP_NASA_API_KEY
 
 export default function Main() {
     const [data, setData] = useState({ date: '', explanation: '', hdurl: '', title: '' })
-    const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
 
@@ -36,10 +35,10 @@ export default function Main() {
                 const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${API_KEY}&date=` + date)
                 const data = await response.json()
                 setData(data)
-                setError(null)
                 setIsLoading(true)
             } catch (error) {
-                setError(error)
+                console.error('Error fetching Picture of the Day:', error)
+                setData({ date: '', explanation: '', hdurl: '', title: '' })
             }
         }
         loadData()

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate, useLocation } from "react-router-dom"
-import { FaGithub, FaLinkedin, FaLink } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import "./Header.css"
 
 export default function Header() {
@@ -18,9 +18,6 @@ export default function Header() {
                     : <>
                         <li>
                             <Link className={(pathName === '/multimedia') ? 'active link-menu-item' : 'link-menu-item'} to='/multimedia'>MULTIMEDIA</Link>
-                        </li>
-                        <li>
-                            <Link className={(pathName === '/mars-weather') ? 'active link-menu-item' : 'link-menu-item'} to='/mars-weather'>MARS WEATHER</Link>
                         </li>
                         <li>
                             <Link className={(pathName === '/mars-rover-photos') ? 'active link-menu-item' : 'link-menu-item'} to='/mars-rover-photos'>MARS ROVER PHOTOS</Link>
