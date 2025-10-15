@@ -1,11 +1,21 @@
 .earth-observatory-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 200px;
     padding: 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
+    box-sizing: border-box;
+    background-image: url('../assets/jpg/stars-background.jpg');
+    background-size: contain;
+    background-position: center;
+    color: #d2dae2;
 }
 
 .earth-observatory-page h2 {
+    font-family: 'Press Start 2P', cursive;
     text-align: center;
+    margin: 0;
     margin-bottom: 0.5rem;
 }
 
@@ -20,17 +30,22 @@
 .map-info {
     display: flex;
     justify-content: space-between;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(30, 39, 46, 0.9);
     padding: 1rem;
     border-radius: 8px 8px 0 0;
     font-size: 0.9rem;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
 }
 
 .map-container {
-    border: 2px solid #333;
+    width: 100%;
+    max-width: 1200px;
+    border: 2px solid #808e9b;
     border-radius: 0 0 8px 8px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* Leaflet map styles */
@@ -48,9 +63,12 @@
 .map-description {
     margin-top: 2rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(30, 39, 46, 0.7);
     border-radius: 8px;
     line-height: 1.6;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
 }
 
 .map-description h3 {
@@ -76,9 +94,15 @@
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .earth-observatory-page {
+        margin-left: 0;
         padding: 1rem;
+    }
+
+    .earth-observatory-page h2 {
+        font-size: 1.5rem;
+        padding-top: 1rem;
     }
 
     .map-container {
@@ -88,6 +112,7 @@
     .map-info {
         flex-direction: column;
         gap: 0.5rem;
+        font-size: 1rem;
     }
 
     .map-description {
