@@ -27,12 +27,19 @@
     display: block;
 }
 
-.layer-selector-container {
+.controls-container {
     width: 100%;
     max-width: 1200px;
     margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    box-sizing: border-box;
+}
+
+.control-section {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .map-info-panel {
@@ -152,6 +159,11 @@
     .earth-observatory-page h2 {
         font-size: 1.5rem;
         padding-top: 1rem;
+    }
+
+    .controls-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .map-info-panel {

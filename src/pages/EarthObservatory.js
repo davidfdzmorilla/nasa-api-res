@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import GIBSMap from '../components/gibs/GIBSMap';
 import LayerSelector, { AVAILABLE_LAYERS } from '../components/gibs/LayerSelector';
+import DateSelector from '../components/gibs/DateSelector';
 import './EarthObservatory.css';
 
 export default function EarthObservatory() {
@@ -9,7 +10,7 @@ export default function EarthObservatory() {
     yesterday.setDate(yesterday.getDate() - 1);
     const defaultDate = yesterday.toISOString().slice(0, 10);
 
-    const [date] = useState(defaultDate);
+    const [date, setDate] = useState(defaultDate);
     const [layer, setLayer] = useState('VIIRS_SNPP_CorrectedReflectance_TrueColor');
 
     const handleMapReady = (map) => {
@@ -20,6 +21,10 @@ export default function EarthObservatory() {
         setLayer(newLayerId);
     };
 
+    const handleDateChange = (newDate) => {
+        setDate(newDate);
+    };
+
     // Get current layer info
     const currentLayerInfo = AVAILABLE_LAYERS.find(l => l.id === layer);
 
@@ -28,12 +33,23 @@ export default function EarthObservatory() {
             <h2>Earth Observatory</h2>
             <p className="subtitle">NASA Global Imagery Browse Services (GIBS)</p>
 
-            {/* Layer Selector Control */}
-            <div className="layer-selector-container">
-                <LayerSelector
-                    selectedLayer={layer}
-                    onLayerChange={handleLayerChange}
-                />
+            {/* Controls Container */}
+            <div className="controls-container">
+                {/* Layer Selector Control */}
+                <div className="control-section">
+                    <LayerSelector
+                        selectedLayer={layer}
+                        onLayerChange={handleLayerChange}
+                    />
+                </div>
+
+                {/* Date Selector Control */}
+                <div className="control-section">
+                    <DateSelector
+                        selectedDate={date}
+                        onDateChange={handleDateChange}
+                    />
+                </div>
             </div>
 
             <div className="map-info-panel">
