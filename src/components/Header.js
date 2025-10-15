@@ -20,6 +20,9 @@ export default function Header() {
                             <Link className={(pathName === '/multimedia') ? 'active link-menu-item' : 'link-menu-item'} to='/multimedia'>MULTIMEDIA</Link>
                         </li>
                         <li>
+                            <Link className={(pathName === '/earth-observatory') ? 'active link-menu-item' : 'link-menu-item'} to='/earth-observatory'>EARTH OBSERVATORY</Link>
+                        </li>
+                        <li>
                             <Link className={(pathName === '/mars-rover-photos') ? 'active link-menu-item' : 'link-menu-item'} to='/mars-rover-photos'>MARS ROVER PHOTOS</Link>
                         </li>
                         <li>
