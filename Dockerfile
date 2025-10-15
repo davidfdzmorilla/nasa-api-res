@@ -21,6 +21,9 @@ RUN npm run build
 # Etapa 2: Servir con Nginx
 FROM nginx:alpine
 
+# Instalar curl para health check
+RUN apk add --no-cache curl
+
 # Copiar los archivos de construcción al directorio de Nginx
 COPY --from=build /app/build /usr/share/nginx/html
 
@@ -30,9 +33,9 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Exponer el puerto 80 para que se pueda acceder a la aplicación
 EXPOSE 80
 
-# Health check
+# Health check usando curl
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost/health || exit 1
+  CMD curl -f http://localhost/health || exit 1
 
 # Iniciar Nginx
 CMD ["nginx", "-g", "daemon off;"]
