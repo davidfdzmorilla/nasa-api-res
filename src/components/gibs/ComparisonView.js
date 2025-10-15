@@ -59,6 +59,9 @@ function TileLayerUpdater({ layerConfig, date }) {
             tileSize={256}
             noWrap={false}
             bounds={[[-90, -180], [90, 180]]}
+            eventHandlers={{
+                tileerror: () => {} // Silently handle tile errors in comparison view
+            }}
         />
     );
 }
@@ -66,18 +69,16 @@ function TileLayerUpdater({ layerConfig, date }) {
 export default function ComparisonView({
     layerConfig,
     dateLeft,
-    dateRight,
-    onDateLeftChange,
-    onDateRightChange
+    dateRight
 }) {
     const [mapPosition, setMapPosition] = useState([20, 0]);
     const [mapZoom, setMapZoom] = useState(2);
 
-    const handlePositionChange = (mapId, newPosition) => {
+    const handlePositionChange = (_mapId, newPosition) => {
         setMapPosition(newPosition);
     };
 
-    const handleZoomChange = (mapId, newZoom) => {
+    const handleZoomChange = (_mapId, newZoom) => {
         setMapZoom(newZoom);
     };
 
@@ -106,6 +107,7 @@ export default function ComparisonView({
                         maxZoom={8}
                         minZoom={1}
                         zoomControl={false}
+                        preferCanvas={true}
                     >
                         <ZoomControl position="topright" />
                         <TileLayerUpdater layerConfig={layerConfig} date={dateLeft} />
@@ -138,6 +140,7 @@ export default function ComparisonView({
                         maxZoom={8}
                         minZoom={1}
                         zoomControl={false}
+                        preferCanvas={true}
                     >
                         <ZoomControl position="topright" />
                         <TileLayerUpdater layerConfig={layerConfig} date={dateRight} />

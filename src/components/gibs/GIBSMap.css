@@ -117,6 +117,56 @@
     }
 }
 
+/* Tile Error Notification */
+.tile-error-notification {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(220, 53, 69, 0.95);
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease;
+    max-width: 90%;
+    backdrop-filter: blur(4px);
+}
+
+.error-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.error-text {
+    font-size: 0.9rem;
+    flex: 1;
+}
+
+.error-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.error-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .gibs-map-wrapper {

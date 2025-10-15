@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, ZoomControl, useMapEvents, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './GIBSMap.css';
@@ -27,8 +27,9 @@ function MapEventsHandler({ onLoading }) {
 }
 
 // Component to handle dynamic tile layer updates
-function TileLayerUpdater({ layerConfig, date }) {
+function TileLayerUpdater({ layerConfig, date, onTileError }) {
     const map = useMap();
+    const hasNotifiedError = useRef(false);
 
     useEffect(() => {
         // Invalidate map size and trigger redraw when layer changes
@@ -38,6 +39,19 @@ function TileLayerUpdater({ layerConfig, date }) {
     }, [layerConfig, date, map]);
 
     const gibsUrl = `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/${layerConfig.id}/default/${date}/${layerConfig.tileMatrixSet}/{z}/{y}/{x}.${layerConfig.format}`;
+
+    const handleTileError = () => {
+        if (onTileError && !hasNotifiedError.current) {
+            // Only notify once per layer/date change
+            onTileError(layerConfig, date);
+            hasNotifiedError.current = true;
+        }
+    };
+
+    useEffect(() => {
+        // Reset error notification flag when layer or date changes
+        hasNotifiedError.current = false;
+    }, [layerConfig, date]);
 
     return (
         <TileLayer
@@ -49,12 +63,16 @@ function TileLayerUpdater({ layerConfig, date }) {
             tileSize={256}
             noWrap={false}
             bounds={[[-90, -180], [90, 180]]}
+            eventHandlers={{
+                tileerror: handleTileError
+            }}
         />
     );
 }
 
 export default function GIBSMap({ layerConfig, date, onMapReady }) {
     const [isLoading, setIsLoading] = useState(true);
+    const [tileError, setTileError] = useState(null);
     const [mapCenter] = useState([20, 0]); // Slightly north to show more land
     const [mapZoom] = useState(2);
 
@@ -66,6 +84,15 @@ export default function GIBSMap({ layerConfig, date, onMapReady }) {
         setTimeout(() => setIsLoading(false), 1000);
     };
 
+    const handleTileError = (layer, errorDate) => {
+        setTileError({
+            layer: layer.name,
+            date: errorDate
+        });
+        // Auto-hide error after 5 seconds
+        setTimeout(() => setTileError(null), 5000);
+    };
+
     return (
         <div className="gibs-map-wrapper">
             {isLoading && (
@@ -74,6 +101,23 @@ export default function GIBSMap({ layerConfig, date, onMapReady }) {
                     <p>Initializing Earth Observatory...</p>
                 </div>
             )}
+
+            {tileError && (
+                <div className="tile-error-notification">
+                    <span className="error-icon">⚠️</span>
+                    <span className="error-text">
+                        Some tiles failed to load for {tileError.layer} ({tileError.date})
+                    </span>
+                    <button
+                        className="error-close"
+                        onClick={() => setTileError(null)}
+                        aria-label="Close error"
+                    >
+                        ×
+                    </button>
+                </div>
+            )}
+
             <MapContainer
                 center={mapCenter}
                 zoom={mapZoom}
@@ -82,12 +126,17 @@ export default function GIBSMap({ layerConfig, date, onMapReady }) {
                 minZoom={1}
                 zoomControl={false} // We'll add it in a custom position
                 whenReady={(e) => handleMapCreated(e.target)}
+                preferCanvas={true} // Use canvas for better performance
             >
                 {/* Custom zoom control position */}
                 <ZoomControl position="topright" />
 
                 {/* GIBS Tile Layer with dynamic updates */}
-                <TileLayerUpdater layerConfig={layerConfig} date={date} />
+                <TileLayerUpdater
+                    layerConfig={layerConfig}
+                    date={date}
+                    onTileError={handleTileError}
+                />
 
                 {/* Map event handlers for tile loading */}
                 <MapEventsHandler onLoading={setIsLoading} />
