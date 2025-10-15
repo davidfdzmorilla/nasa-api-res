@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Loading from "../components/Loading"
+import ApiErrorMessage from "../components/ApiErrorMessage"
 import "./Epic.css"
 import EpicImage from "../components/EpicImage"
 
@@ -9,6 +10,7 @@ export default function Epic({ scrollY }) {
     const [data, setData] = useState(null)
     const [filterCollection] = useState('natural')
     const [dateImage, setDateImage] = useState('')
+    const [error, setError] = useState(false)
 
     const url = `https://api.nasa.gov/EPIC/api/${filterCollection}?api_key=${API_KEY}`
 
@@ -25,6 +27,7 @@ export default function Epic({ scrollY }) {
                 setDateImage(data[0].date.slice(0, 10))
             } catch (error) {
                 console.error('Error fetching EPIC data:', error)
+                setError(true)
                 setData([])
             }
         }
@@ -32,6 +35,7 @@ export default function Epic({ scrollY }) {
     }, [url])
 
     if (!data) return <Loading />
+    if (error) return <ApiErrorMessage apiName="EPIC Earth Imagery API" />
 
     return (
         <main className="epic-page">

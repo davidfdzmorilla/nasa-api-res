@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Loading from "../components/Loading"
+import ApiErrorMessage from "../components/ApiErrorMessage"
 import "./PictureOfTheDay.css"
 
 const API_KEY = process.env.REACT_APP_NASA_API_KEY
@@ -8,6 +9,7 @@ const API_KEY = process.env.REACT_APP_NASA_API_KEY
 export default function Main() {
     const [data, setData] = useState({ date: '', explanation: '', hdurl: '', title: '' })
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
+    const [error, setError] = useState(false)
 
     const handleDay = e => {
         e.preventDefault()
@@ -35,13 +37,15 @@ export default function Main() {
                 setData(data)
             } catch (error) {
                 console.error('Error fetching Picture of the Day:', error)
+                setError(true)
                 setData({ date: '', explanation: '', hdurl: '', title: '' })
             }
         }
         loadData()
     }, [date])
 
-    if (!data.date) return <Loading />
+    if (!data.date && !error) return <Loading />
+    if (error) return <ApiErrorMessage apiName="Astronomy Picture of the Day API" />
 
     return (
         <main className="picture-of-the-day">

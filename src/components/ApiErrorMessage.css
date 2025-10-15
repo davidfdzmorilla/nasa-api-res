@@ -1,0 +1,161 @@
+.api-error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 2rem;
+}
+
+.api-error-card {
+    background: rgba(30, 30, 30, 0.9);
+    border: 2px solid #ff6b6b;
+    border-radius: 12px;
+    padding: 3rem;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+}
+
+.error-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.api-error-card h2 {
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.error-message {
+    color: #d2dae2;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.shutdown-notice {
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+}
+
+.shutdown-notice p {
+    margin: 0.5rem 0;
+    color: #ffc107;
+    font-size: 0.95rem;
+}
+
+.shutdown-notice strong {
+    color: #fff;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.retry-button,
+.working-features-button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.retry-button {
+    background: #4dabf7;
+    color: white;
+    border: none;
+}
+
+.retry-button:hover {
+    background: #339af0;
+    transform: translateY(-2px);
+}
+
+.working-features-button {
+    background: #51cf66;
+    color: white;
+    border: none;
+}
+
+.working-features-button:hover {
+    background: #37b24d;
+    transform: translateY(-2px);
+}
+
+.error-details {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.error-details details {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.error-details summary {
+    color: #4dabf7;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.5rem;
+}
+
+.error-details summary:hover {
+    color: #339af0;
+}
+
+.error-details ul {
+    margin: 1rem 0 0 1.5rem;
+    color: #d2dae2;
+    line-height: 1.8;
+}
+
+.error-details li {
+    margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+    .api-error-card {
+        padding: 2rem 1rem;
+    }
+
+    .api-error-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .error-icon {
+        font-size: 3rem;
+    }
+
+    .error-actions {
+        flex-direction: column;
+    }
+
+    .retry-button,
+    .working-features-button {
+        width: 100%;
+    }
+}

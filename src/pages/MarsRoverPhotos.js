@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import LazyLoad from 'react-lazy-load';
 import Loading from "../components/Loading"
+import ApiErrorMessage from "../components/ApiErrorMessage"
 
 import "./MarsRoverPhotos.css"
 
@@ -9,6 +10,7 @@ const API_KEY = process.env.REACT_APP_NASA_API_KEY
 export default function MarsRoverPhotos({ scrollY }) {
     const [data, setData] = useState(null)
     const [page, setPage] = useState(1)
+    const [error, setError] = useState(false)
 
     const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${page}&api_key=${API_KEY}`
 
@@ -24,6 +26,7 @@ export default function MarsRoverPhotos({ scrollY }) {
                 setData(data)
             } catch (error) {
                 console.error('Error fetching Mars Rover photos:', error)
+                setError(true)
                 setData({ photos: [] })
             }
         }
@@ -31,6 +34,7 @@ export default function MarsRoverPhotos({ scrollY }) {
     }, [url])
 
     if (!data) return <Loading />
+    if (error) return <ApiErrorMessage apiName="Mars Rover Photos API" />
 
     return (
         <main className="mars-rover-photos-page">
