@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { MapContainer, TileLayer, ZoomControl, useMapEvents } from 'react-leaflet';
+import { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, ZoomControl, useMapEvents, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './GIBSMap.css';
 
@@ -26,13 +26,37 @@ function MapEventsHandler({ onLoading }) {
     ) : null;
 }
 
-export default function GIBSMap({ layer, date, onMapReady }) {
+// Component to handle dynamic tile layer updates
+function TileLayerUpdater({ layerConfig, date }) {
+    const map = useMap();
+
+    useEffect(() => {
+        // Invalidate map size and trigger redraw when layer changes
+        setTimeout(() => {
+            map.invalidateSize();
+        }, 100);
+    }, [layerConfig, date, map]);
+
+    const gibsUrl = `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/${layerConfig.id}/default/${date}/${layerConfig.tileMatrixSet}/{z}/{y}/{x}.${layerConfig.format}`;
+
+    return (
+        <TileLayer
+            key={`${layerConfig.id}-${date}`}
+            url={gibsUrl}
+            attribution='&copy; <a href="https://earthdata.nasa.gov/gibs" target="_blank" rel="noopener noreferrer">NASA GIBS</a>'
+            maxZoom={8}
+            minZoom={1}
+            tileSize={256}
+            noWrap={false}
+            bounds={[[-90, -180], [90, 180]]}
+        />
+    );
+}
+
+export default function GIBSMap({ layerConfig, date, onMapReady }) {
     const [isLoading, setIsLoading] = useState(true);
     const [mapCenter] = useState([20, 0]); // Slightly north to show more land
     const [mapZoom] = useState(2);
-
-    // GIBS tile URL
-    const gibsUrl = `https://gibs.earthdata.nasa.gov/wmts/epsg4326/best/${layer}/default/${date}/250m/{z}/{y}/{x}.jpg`;
 
     const handleMapCreated = (map) => {
         if (onMapReady) {
@@ -62,16 +86,8 @@ export default function GIBSMap({ layer, date, onMapReady }) {
                 {/* Custom zoom control position */}
                 <ZoomControl position="topright" />
 
-                {/* GIBS Tile Layer */}
-                <TileLayer
-                    url={gibsUrl}
-                    attribution='&copy; <a href="https://earthdata.nasa.gov/gibs" target="_blank" rel="noopener noreferrer">NASA GIBS</a>'
-                    maxZoom={8}
-                    minZoom={1}
-                    tileSize={256}
-                    noWrap={false}
-                    bounds={[[-90, -180], [90, 180]]} // World bounds
-                />
+                {/* GIBS Tile Layer with dynamic updates */}
+                <TileLayerUpdater layerConfig={layerConfig} date={date} />
 
                 {/* Map event handlers for tile loading */}
                 <MapEventsHandler onLoading={setIsLoading} />
