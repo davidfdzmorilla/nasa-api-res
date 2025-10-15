@@ -3,11 +3,12 @@ import Loading from "../components/Loading"
 import "./Epic.css"
 import EpicImage from "../components/EpicImage"
 
+const API_KEY = process.env.REACT_APP_NASA_API_KEY
 
 export default function Epic({ scrollY }) {
     const [data, setData] = useState(null)
     const [filterCollection, setFilterCollection] = useState('natural')
-    const [url, setUrl] = useState(`https://api.nasa.gov/EPIC/api/${filterCollection}?api_key=3bCO3vHTdW0kbNyMN986HguufD9aXbwb79KATW3d`)
+    const [url, setUrl] = useState(`https://api.nasa.gov/EPIC/api/${filterCollection}?api_key=${API_KEY}`)
     const [dateImage, setDateImage] = useState('')
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)

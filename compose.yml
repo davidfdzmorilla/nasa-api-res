@@ -1,0 +1,19 @@
+services:
+  nasa-api-res-react-app:
+    build: .
+    ports:
+      - "3001:80"
+    networks:
+      - traefik_proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nasa-api-res-react-app.rule=Host(`nasaapp.davidfdzmorilla.dev`)"
+      - "traefik.http.routers.nasa-api-res-react-app.entrypoints=websecure"
+      - "traefik.http.routers.nasa-api-res-react-app.tls.certresolver=myresolver"
+    # volumes removed for production deployment
+    # For development, use: docker run -v $(pwd):/app -v /app/node_modules -p 3000:3000 nasa-api-res-react-app npm start
+    restart: unless-stopped
+
+networks:
+  traefik_proxy:
+    external: true

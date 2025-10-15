@@ -30,7 +30,7 @@ export default function MarsWeather() {
             <section className="weather-cards-container">
                 {weather?.map(weatherDay => {
                     return (
-                        <article key={Math.random()} className="weather-card">
+                        <article key={weatherDay.sol} className="weather-card">
                             <h3>Sol {weatherDay.sol}</h3>
                             <span> 📅 {weatherDay.terrestrial_date}</span>
                             <p>Atmo: {weatherDay.atmo_opacity}</p>

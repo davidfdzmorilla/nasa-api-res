@@ -30,6 +30,7 @@ export default function Multimedia({ scrollY }) {
                 setIsLoading(true)
                 const imagesArray = data?.collection.items.map(item => {
                     return {
+                        id: item.data[0].nasa_id || item.href,
                         urlImage: item.links[0].href,
                         title: item.data[0].title,
                         description: item.data[0].description,
@@ -64,7 +65,7 @@ export default function Multimedia({ scrollY }) {
             <section className="preview-container">
                 {data?.length > 1 ? data?.map(item => {
                     return (
-                        <PreviewCardMultimedia key={Math.random()} item={item} />
+                        <PreviewCardMultimedia key={item.id} item={item} />
                     )
                 }) : <p className="no-results">No hay resultados</p>}
                 <section className="buttons-container">
