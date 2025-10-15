@@ -2,6 +2,7 @@ import { useState } from 'react';
 import GIBSMap from '../components/gibs/GIBSMap';
 import LayerSelector, { AVAILABLE_LAYERS } from '../components/gibs/LayerSelector';
 import DateSelector from '../components/gibs/DateSelector';
+import ComparisonView from '../components/gibs/ComparisonView';
 import './EarthObservatory.css';
 
 export default function EarthObservatory() {
@@ -10,8 +11,16 @@ export default function EarthObservatory() {
     yesterday.setDate(yesterday.getDate() - 1);
     const defaultDate = yesterday.toISOString().slice(0, 10);
 
+    // Calculate date one week ago for comparison
+    const oneWeekAgo = new Date(yesterday);
+    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+    const defaultComparisonDate = oneWeekAgo.toISOString().slice(0, 10);
+
     const [date, setDate] = useState(defaultDate);
+    const [dateLeft, setDateLeft] = useState(defaultComparisonDate);
+    const [dateRight, setDateRight] = useState(defaultDate);
     const [layer, setLayer] = useState('VIIRS_SNPP_CorrectedReflectance_TrueColor');
+    const [isComparisonMode, setIsComparisonMode] = useState(false);
 
     const handleMapReady = (map) => {
         console.log('Map initialized:', map);
@@ -33,24 +42,71 @@ export default function EarthObservatory() {
             <h2>Earth Observatory</h2>
             <p className="subtitle">NASA Global Imagery Browse Services (GIBS)</p>
 
-            {/* Controls Container */}
-            <div className="controls-container">
-                {/* Layer Selector Control */}
-                <div className="control-section">
-                    <LayerSelector
-                        selectedLayer={layer}
-                        onLayerChange={handleLayerChange}
-                    />
-                </div>
-
-                {/* Date Selector Control */}
-                <div className="control-section">
-                    <DateSelector
-                        selectedDate={date}
-                        onDateChange={handleDateChange}
-                    />
-                </div>
+            {/* View Mode Toggle */}
+            <div className="view-mode-toggle">
+                <button
+                    className={`toggle-button ${!isComparisonMode ? 'active' : ''}`}
+                    onClick={() => setIsComparisonMode(false)}
+                >
+                    <span className="toggle-icon">🗺️</span>
+                    Single View
+                </button>
+                <button
+                    className={`toggle-button ${isComparisonMode ? 'active' : ''}`}
+                    onClick={() => setIsComparisonMode(true)}
+                >
+                    <span className="toggle-icon">⇔</span>
+                    Compare View
+                </button>
             </div>
+
+            {/* Controls Container */}
+            {!isComparisonMode ? (
+                <div className="controls-container">
+                    {/* Layer Selector Control */}
+                    <div className="control-section">
+                        <LayerSelector
+                            selectedLayer={layer}
+                            onLayerChange={handleLayerChange}
+                        />
+                    </div>
+
+                    {/* Date Selector Control */}
+                    <div className="control-section">
+                        <DateSelector
+                            selectedDate={date}
+                            onDateChange={handleDateChange}
+                        />
+                    </div>
+                </div>
+            ) : (
+                <div className="controls-container">
+                    {/* Layer Selector (shared for both maps) */}
+                    <div className="control-section full-width">
+                        <LayerSelector
+                            selectedLayer={layer}
+                            onLayerChange={handleLayerChange}
+                        />
+                    </div>
+
+                    {/* Date Selectors for Comparison */}
+                    <div className="control-section">
+                        <label className="comparison-label">Before Date</label>
+                        <DateSelector
+                            selectedDate={dateLeft}
+                            onDateChange={setDateLeft}
+                        />
+                    </div>
+
+                    <div className="control-section">
+                        <label className="comparison-label">After Date</label>
+                        <DateSelector
+                            selectedDate={dateRight}
+                            onDateChange={setDateRight}
+                        />
+                    </div>
+                </div>
+            )}
 
             <div className="map-info-panel">
                 <div className="info-item">
@@ -70,11 +126,21 @@ export default function EarthObservatory() {
             </div>
 
             <div className="map-container">
-                <GIBSMap
-                    layerConfig={currentLayerInfo}
-                    date={date}
-                    onMapReady={handleMapReady}
-                />
+                {!isComparisonMode ? (
+                    <GIBSMap
+                        layerConfig={currentLayerInfo}
+                        date={date}
+                        onMapReady={handleMapReady}
+                    />
+                ) : (
+                    <ComparisonView
+                        layerConfig={currentLayerInfo}
+                        dateLeft={dateLeft}
+                        dateRight={dateRight}
+                        onDateLeftChange={setDateLeft}
+                        onDateRightChange={setDateRight}
+                    />
+                )}
             </div>
 
             <div className="map-controls-info">
@@ -102,8 +168,11 @@ export default function EarthObservatory() {
                     <strong> Update Frequency:</strong> Daily
                 </p>
                 <p className="note">
-                    <strong>🚧 Development Note:</strong> This is Phase 7.3 of the Earth Observatory feature.
-                    Additional capabilities coming soon: date selection, comparison tools, and natural disaster monitoring.
+                    <strong>🚧 Development Note:</strong> This is Phase 7.5 of the Earth Observatory feature.
+                    {isComparisonMode ?
+                        ' Compare mode allows you to visualize changes over time by displaying two maps side-by-side with synchronized navigation.' :
+                        ' Switch to Compare View to visualize environmental changes over time.'
+                    }
                 </p>
             </div>
         </main>
