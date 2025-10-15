@@ -9,7 +9,6 @@ export default function Epic({ scrollY }) {
     const [data, setData] = useState(null)
     const [filterCollection] = useState('natural')
     const [dateImage, setDateImage] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
 
     const url = `https://api.nasa.gov/EPIC/api/${filterCollection}?api_key=${API_KEY}`
 
@@ -24,14 +23,13 @@ export default function Epic({ scrollY }) {
                 const data = await response.json()
                 setData(data)
                 setDateImage(data[0].date.slice(0, 10))
-                setIsLoading(true)
             } catch (error) {
                 console.error('Error fetching EPIC data:', error)
                 setData([])
             }
         }
         loadData()
-    }, [isLoading, url, filterCollection])
+    }, [url])
 
     if (!data) return <Loading />
 
@@ -42,10 +40,7 @@ export default function Epic({ scrollY }) {
                 <form>
                     <label>
                         Filter
-                        <input type='date' value={dateImage} onChange={e => {
-                            setDateImage(e.target.value)
-                            setIsLoading(!isLoading)
-                        }} max={new Date().toISOString().slice(0, 10)} />
+                        <input type='date' value={dateImage} onChange={e => setDateImage(e.target.value)} max={new Date().toISOString().slice(0, 10)} />
                     </label>
                     {/* <select>
                         <option onClick={e => {setFilterCollection(e.target.value)}} value='natural' defaultValue>Natural</option>

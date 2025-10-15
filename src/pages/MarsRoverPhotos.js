@@ -9,7 +9,6 @@ const API_KEY = process.env.REACT_APP_NASA_API_KEY
 export default function MarsRoverPhotos({ scrollY }) {
     const [data, setData] = useState(null)
     const [page, setPage] = useState(1)
-    const [isLoading, setIsLoading] = useState(false)
 
     const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${page}&api_key=${API_KEY}`
 
@@ -23,14 +22,13 @@ export default function MarsRoverPhotos({ scrollY }) {
                 const response = await fetch(url)
                 const data = await response.json()
                 setData(data)
-                setIsLoading(true)
             } catch (error) {
                 console.error('Error fetching Mars Rover photos:', error)
                 setData({ photos: [] })
             }
         }
         loadData()
-    }, [isLoading, url, page])
+    }, [url])
 
     if (!data) return <Loading />
 

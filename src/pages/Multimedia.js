@@ -7,7 +7,6 @@ import "./Multimedia.css"
 
 export default function Multimedia({ scrollY }) {
     const [data, setData] = useState(null)
-    const [isLoading, setIsLoading] = useState(false)
     const [page, setPage] = useState('1')
     const [title, setTitle] = useState('')
     const [mediaType, setMediaType] = useState('image,video')
@@ -25,7 +24,6 @@ export default function Multimedia({ scrollY }) {
             try {
                 const response = await fetch(url)
                 const data = await response.json()
-                setIsLoading(true)
                 const imagesArray = data?.collection.items.map(item => {
                     return {
                         id: item.data[0].nasa_id || item.href,
@@ -37,14 +35,13 @@ export default function Multimedia({ scrollY }) {
                     }
                 })
                 setData(imagesArray)
-                setPage(page)
             } catch (error) {
                 console.error('Error fetching multimedia data:', error)
                 setData([])
             }
         }
         loadData()
-    }, [isLoading, mediaType, page, url])
+    }, [mediaType, title, url])
 
     if (!data) return <Loading />
 
