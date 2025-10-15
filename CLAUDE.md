@@ -54,8 +54,11 @@ NASA API key required for:
 3. Show `Loading` component until data arrives
 4. Store response in component state
 5. Error handling via try/catch with console.error logging
+6. Display `ApiErrorMessage` component on fetch failures (added Oct 2025)
 
-**Error Handling**: Enhanced `ErrorBoundary` component (`src/utils/ErrorBoundary.js`) with `componentDidCatch` lifecycle method for error logging and improved fallback UI.
+**Error Handling**:
+- Enhanced `ErrorBoundary` component (`src/utils/ErrorBoundary.js`) with `componentDidCatch` lifecycle method for error logging and improved fallback UI
+- Added `ApiErrorMessage` component (Oct 2025) for user-friendly API error messages with government shutdown notice, retry functionality, and navigation to working features
 
 ### Pages
 
@@ -78,6 +81,7 @@ All pages follow similar structure with dedicated CSS files:
 - `EpicImage.js` - EPIC image gallery renderer
 - `PreviewCardMultimedia.js` - Multimedia search result cards
 - `ErrorBoundary.js` - React error boundary wrapper
+- `ApiErrorMessage.js` - User-friendly API error messages (added Oct 2025)
 
 ### Pagination Pattern
 
@@ -119,12 +123,21 @@ Pages with pagination (MarsRoverPhotos, Multimedia) implement:
 - **Total**: ~73 KB (excellent for SPA)
 - **Build**: Compiles with ZERO warnings ✓
 
-### API Endpoints Status
-- **APOD** (Picture of the Day): ✓ Working
-- **EPIC** (Earth imagery): ✓ Working
-- **Mars Rover Photos**: ✓ Working
-- **Multimedia Search**: ✓ Working
+### API Endpoints Status (Updated October 15, 2025)
+
+**⚠️ TEMPORARY OUTAGE - Government Shutdown**
+
+Most NASA APIs are currently unavailable due to federal government funding lapse. Error handling has been implemented to provide user-friendly messages.
+
+- **APOD** (Picture of the Day): ❌ DOWN (504 timeout - government shutdown)
+- **EPIC** (Earth imagery): ❌ DOWN (503 unavailable - government shutdown + DSCOVR satellite anomaly since July 2025)
+- **Mars Rover Photos**: ❌ DOWN (404 not found - government shutdown)
+- **Multimedia Search**: ✅ WORKING (different infrastructure)
 - **Mars Weather**: ✗ REMOVED (InSight mission ended Feb 2023)
+
+**Important**: Error handling implemented with `ApiErrorMessage` component. Users see friendly messages with retry options and links to working features. See `docs/NASA_API_STATUS.md` for details.
+
+**EPIC Clarification**: The "Earth API deprecated" notice refers to a DIFFERENT API, not EPIC. EPIC API remains operational (when not affected by current issues). See `docs/NASA_API_STATUS.md` for EPIC vs GIBS research.
 
 ### Production Deployment
 - **Domain**: nasaapp.davidfdzmorilla.dev
@@ -194,8 +207,10 @@ All 6 phases completed successfully. See `.claude/MODERNIZATION_SUMMARY.md` for 
 ### When Working with NASA APIs
 1. **Use environment variable**: Never hardcode API keys
 2. **Handle rate limits**: NASA APIs have rate limits (30 requests/hour for DEMO_KEY, 1000/hour for registered keys)
-3. **Implement error handling**: APIs can be down or return errors
+3. **Implement error handling**: APIs can be down or return errors - use `ApiErrorMessage` component for user-friendly error display
 4. **Test with live API**: Always test with actual NASA API, not mock data
+5. **Monitor API status**: Check `docs/NASA_API_STATUS.md` for current NASA API availability and known issues
+6. **Handle government shutdowns**: NASA APIs may be unavailable during federal funding lapses - ensure graceful error handling
 
 ### When Modifying Components
 1. **Follow existing patterns**: Use useState/useEffect for data fetching
@@ -215,10 +230,12 @@ All 6 phases completed successfully. See `.claude/MODERNIZATION_SUMMARY.md` for 
 - Run `npm install` to ensure all dependencies are installed
 - Clear node_modules and reinstall if issues persist
 
-### API returns 403/401 errors
-- Check that REACT_APP_NASA_API_KEY is set in .env
+### API returns 403/401/503/504 errors
+- **503/504 errors**: May indicate government shutdown or NASA server issues - check `docs/NASA_API_STATUS.md`
+- **403/401 errors**: Check that REACT_APP_NASA_API_KEY is set in .env
 - Verify API key is valid at api.nasa.gov
 - Check rate limits haven't been exceeded
+- Review console errors for specific API endpoint issues
 
 ### Docker build fails
 - Ensure node_modules is in .dockerignore
